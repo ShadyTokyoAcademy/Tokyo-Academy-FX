@@ -121,11 +121,18 @@ p {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
   transition: 0.3s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 .btn.primary {
@@ -147,6 +154,106 @@ p {
 .btn.secondary:hover {
   background: #ffb300;
   color: #111;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2000;
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #111;
+  border: 1px solid rgba(255, 179, 0, 0.35);
+  border-radius: 16px;
+  padding: 30px;
+  width: min(500px, 100%);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.modal-subtitle {
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.modal-form {
+  display: grid;
+  gap: 15px;
+}
+
+.modal-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-weight: 500;
+  gap: 8px;
+}
+
+.modal-form label span {
+  color: #f3f4f6;
+}
+
+.modal-form input,
+.modal-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0b0b0b;
+  color: #fff;
+  transition: border 0.3s ease;
+}
+
+.modal-form input:focus,
+.modal-form select:focus {
+  outline: none;
+  border-color: #ffb300;
+  box-shadow: 0 0 0 2px rgba(255, 179, 0, 0.15);
+}
+
+.modal-form .btn {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 25px 20px;
+  }
 }
 
 /* STATS SECTION */
