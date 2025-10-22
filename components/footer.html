@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Popular Sniveling Llama</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 1rem;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: undefined;
+        text-transform: undefined;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+
+        fill: var(--color-on-surface);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="../style.css" />
+    <div>
+      <link href="./footer.css" rel="stylesheet" />
+      <div class="footer-container1">
+        <div class="footer-container2">
+          <div class="footer-container3">
+            <style>
+                      @keyframes footer-shimmer {0%,100% {opacity: 0.3;
+              transform: translateX(-100%);}
+              50% {opacity: 0.8;
+              transform: translateX(100%);}}
+            </style>
+          </div>
+        </div>
+        <div class="footer-container4">
+          <div class="footer-container5">
+            <script defer="" data-name="footer">
+              document.addEventListener('DOMContentLoaded', function() {
+                (function(){
+                  // Scroll to Top Button Functionality
+                  const scrollTopBtn = document.querySelector(".footer-scroll-top")
+
+                  // Show/hide scroll to top button based on scroll position
+                  function handleScrollTopVisibility() {
+                    if (window.scrollY > 300) {
+                      scrollTopBtn.classList.add("footer-visible")
+                    } else {
+                      scrollTopBtn.classList.remove("footer-visible")
+                    }
+                  }
+
+                  // Smooth scroll to top
+                  function scrollToTop() {
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }
+
+                  // Event listeners
+                  window.addEventListener("scroll", handleScrollTopVisibility)
+                  scrollTopBtn.addEventListener("click", scrollToTop)
+
+                  // Newsletter Form Submission
+                  const newsletterForm = document.querySelector(".footer-newsletter-form")
+
+                  if (newsletterForm) {
+                    newsletterForm.addEventListener("submit", function (e) {
+                      e.preventDefault()
+
+                      const emailInput = document.getElementById("newsletter-email")
+                      const email = emailInput.value
+
+                      // Basic email validation
+                      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+                      if (emailRegex.test(email)) {
+                        // Success feedback
+                        const submitBtn = newsletterForm.querySelector(".footer-submit-btn")
+                        const originalText = submitBtn.innerHTML
+
+                        submitBtn.innerHTML = "<span>Subscribed!</span>"
+                        submitBtn.style.background = "var(--color-accent)"
+
+                        // Reset after 3 seconds
+                        setTimeout(() => {
+                          submitBtn.innerHTML = originalText
+                          submitBtn.style.background = ""
+                          emailInput.value = ""
+                        }, 3000)
+                      } else {
+                        // Error feedback
+                        emailInput.style.borderColor = "var(--color-accent)"
+
+                        setTimeout(() => {
+                          emailInput.style.borderColor = ""
+                        }, 2000)
+                      }
+                    })
+                  }
+
+                  // Add stagger animation to footer links on initial load
+                  const footerLinks = document.querySelectorAll(".footer-link")
+                  const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                  }
+
+                  const linkObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                      if (entry.isIntersecting) {
+                        setTimeout(() => {
+                          entry.target.style.opacity = "1"
+                          entry.target.style.transform = "translateY(0)"
+                        }, index * 50)
+                        linkObserver.unobserve(entry.target)
+                      }
+                    })
+                  }, observerOptions)
+
+                  footerLinks.forEach((link) => {
+                    link.style.opacity = "0"
+                    link.style.transform = "translateY(10px)"
+                    link.style.transition = "all 0.4s ease"
+                    linkObserver.observe(link)
+                  })
+                })()
+              });
+            </script>
+          </div>
+        </div>
+        <footer id="footer-section" class="footer-main">
+          <div aria-hidden="true" class="footer-bg-grid"></div>
+          <div aria-hidden="true" class="footer-bg-gradient"></div>
+          <div class="footer-newsletter">
+            <div class="footer-container">
+              <div class="footer-newsletter-content">
+                <div class="footer-newsletter-text">
+                  <h2 class="footer-newsletter-title">Stay Ahead in Trading</h2>
+                  <p class="footer-newsletter-subtitle">
+                    Get exclusive trading insights, course updates, and market
+                    analysis delivered to your inbox.
+                  </p>
+                </div>
+                <form
+                  aria-label="Newsletter subscription form"
+                  class="footer-newsletter-form"
+                >
+                  <div class="footer-form-group">
+                    <label for="newsletter-email" class="footer-sr-only">
+                      Email address
+                    </label>
+                    <div class="footer-input-wrapper">
+                      <div class="footer-icon-input">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+                            ></path>
+                            <rect
+                              width="20"
+                              height="16"
+                              x="2"
+                              y="4"
+                              rx="2"
+                            ></rect>
+                          </g>
+                        </svg>
+                      </div>
+                      <input
+                        type="email"
+                        id="newsletter-email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required="true"
+                        class="footer-input"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      class="footer-submit-btn btn btn-primary"
+                    >
+                      <span>Subscribe</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m5 12l7-7l7 7m-7 7V5"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="footer-content">
+            <div class="footer-container">
+              <div class="footer-grid">
+                <div class="footer-brand">
+                  <div class="footer-logo-wrapper">
+                    <div aria-hidden="true" class="footer-logo-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="footer-logo-text">TradeMentor Hub</h3>
+                  </div>
+                  <p class="footer-brand-description">
+                    Empowering traders with world-class education, mentorship,
+                    and tools to succeed in forex, indices, commodities, and
+                    crypto markets.
+                  </p>
+                  <div class="footer-social-links">
+                    <p class="footer-social-title">Follow Us</p>
+                    <div class="footer-social-icons">
+                      <a href="#facebook">
+                        <div
+                          aria-label="Follow us on Facebook"
+                          class="footer-social-link"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </a>
+                      <a href="#twitter">
+                        <div
+                          aria-label="Follow us on Twitter"
+                          class="footer-social-link"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6c2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4c-.9-4.2 4-6.6 7-3.8c1.1 0 3-1.2 3-1.2"
+                            ></path>
+                          </svg>
+                        </div>
+                      </a>
+                      <a href="#instagram">
+                        <div
+                          aria-label="Follow us on Instagram"
+                          class="footer-social-link"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                          >
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            >
+                              <rect
+                                width="20"
+                                height="20"
+                                x="2"
+                                y="2"
+                                rx="5"
+                                ry="5"
+                              ></rect>
+                              <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01"
+                              ></path>
+                            </g>
+                          </svg>
+                        </div>
+                      </a>
+                      <a href="#linkedin">
+                        <div
+                          aria-label="Follow us on LinkedIn"
+                          class="footer-social-link"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                          >
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"
+                              ></path>
+                              <circle cx="4" cy="4" r="2"></circle>
+                            </g>
+                          </svg>
+                        </div>
+                      </a>
+                      <a href="#youtube">
+                        <div
+                          aria-label="Subscribe to our YouTube channel"
+                          class="footer-social-link"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                          >
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M2.5 17a24.1 24.1 0 0 1 0-10a2 2 0 0 1 1.4-1.4a49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.1 24.1 0 0 1 0 10a2 2 0 0 1-1.4 1.4a49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                              ></path>
+                              <path d="m10 15l5-3l-5-3z"></path>
+                            </g>
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-column">
+                  <h4 class="footer-column-title">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                      ></path>
+                    </svg>
+                    <span>Learn</span>
+                  </h4>
+                  <ul class="footer-links-list">
+                    <li>
+                      <a href="#courses">
+                        <div class="footer-link"><span>Courses</span></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#forex-basics">
+                        <div class="footer-link"><span>Forex Basics</span></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#advanced-strategies">
+                        <div class="footer-link">
+                          <span>Advanced Strategies</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#crypto-trading">
+                        <div class="footer-link">
+                          <span>Crypto Trading</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#indices-commodities">
+                        <div class="footer-link">
+                          <span>Indices &amp; Commodities</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#free-resources">
+                        <div class="footer-link">
+                          <span>Free Resources</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer-column">
+                  <h4 class="footer-column-title">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"
+                        ></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                      </g>
+                    </svg>
+                    <span>Support</span>
+                  </h4>
+                  <ul class="footer-links-list">
+                    <li>
+                      <a href="#mentorship">
+                        <div class="footer-link">
+                          <span>1-on-1 Mentorship</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#community">
+                        <div class="footer-link">
+                          <span>Trading Community</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#live-sessions">
+                        <div class="footer-link">
+                          <span>Live Sessions</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#testimonials">
+                        <div class="footer-link">
+                          <span>Student Success</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#faqs">
+                        <div class="footer-link"><span>FAQs</span></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#support">
+                        <div class="footer-link"><span>Help Center</span></div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer-column">
+                  <h4 class="footer-column-title">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"
+                        ></path>
+                        <path
+                          d="m18 13l-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18M2.3 2.3l7.286 7.286"
+                        ></path>
+                        <circle cx="11" cy="11" r="2"></circle>
+                      </g>
+                    </svg>
+                    <span>Resources</span>
+                  </h4>
+                  <ul class="footer-links-list">
+                    <li>
+                      <a href="#trading-tools">
+                        <div class="footer-link">
+                          <span>Trading Tools</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#platforms">
+                        <div class="footer-link">
+                          <span>Recommended Platforms</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#calculators">
+                        <div class="footer-link">
+                          <span>Trade Calculators</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#market-analysis">
+                        <div class="footer-link">
+                          <span>Market Analysis</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#blog">
+                        <div class="footer-link"><span>Trading Blog</span></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#webinars">
+                        <div class="footer-link"><span>Webinars</span></div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer-column">
+                  <h4 class="footer-column-title">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+                        ></path>
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      </g>
+                    </svg>
+                    <span>Contact</span>
+                  </h4>
+                  <ul class="footer-contact-list">
+                    <li class="footer-contact-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+                          ></path>
+                          <rect
+                            width="20"
+                            height="16"
+                            x="2"
+                            y="4"
+                            rx="2"
+                          ></rect>
+                        </g>
+                      </svg>
+                      <a href="mailto:info@tradementorhub.com?subject=">
+                        <div class="footer-contact-link">
+                          <span>info@tradementorhub.com</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-contact-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"
+                        ></path>
+                      </svg>
+                      <a href="tel:+1234567890">
+                        <div class="footer-contact-link">
+                          <span>+1 (234) 567-890</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-contact-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M17.97 9.304A8 8 0 0 0 2 10c0 4.69 4.887 9.562 7.022 11.468m12.356-4.842a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+                          ></path>
+                          <circle cx="10" cy="10" r="3"></circle>
+                        </g>
+                      </svg>
+                      <span class="footer-contact-text">Dubai, UAE</span>
+                    </li>
+                  </ul>
+                  <div class="footer-business-hours">
+                    <p class="footer-hours-title">Support Hours</p>
+                    <p class="footer-hours-text">
+                      Mon - Fri: 9:00 AM - 6:00 PM GST
+                    </p>
+                    <p class="footer-hours-text">
+                      Sat - Sun: 10:00 AM - 4:00 PM GST
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-container">
+              <div class="footer-bottom-content">
+                <div class="footer-copyright">
+                  <p>&amp;copy; 2025 TradeMentor Hub. All rights reserved.</p>
+                </div>
+                <nav aria-label="Legal navigation" class="footer-legal-nav">
+                  <ul class="footer-legal-links">
+                    <li>
+                      <a href="#privacy">
+                        <div class="footer-legal-link">
+                          <span>Privacy Policy</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#terms">
+                        <div class="footer-legal-link">
+                          <span>Terms of Service</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#cookies">
+                        <div class="footer-legal-link">
+                          <span>Cookie Policy</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#disclaimer">
+                        <div class="footer-legal-link">
+                          <span>Risk Disclaimer</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="footer-disclaimer-text">
+                <p>
+                  Trading forex, indices, commodities, and cryptocurrencies
+                  involves substantial risk and may not be suitable for all
+                  investors. Past performance is not indicative of future
+                  results. Please ensure you fully understand the risks involved
+                  and seek independent advice if necessary.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            aria-label="Scroll to top"
+            type="button"
+            class="footer-scroll-top"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m5 12l7-7l7 7m-7 7V5"
+              ></path>
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
