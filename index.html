@@ -45,10 +45,10 @@
   <!-- Stats Section -->
   <section class="stats">
     <div class="container stats-grid">
-      <div><h2>20K+</h2><p data-en="Students" data-ar="طلاب"></p></div>
-      <div><h2>150+</h2><p data-en="Live Sessions" data-ar="جلسات مباشرة"></p></div>
-      <div><h2>10+</h2><p data-en="Mentors" data-ar="مدربين"></p></div>
-      <div><h2>100%</h2><p data-en="Education" data-ar="تعليم"></p></div>
+      <div><h2 class="stat-counter" data-target="20000" data-format="compact-plus">0K+</h2><p data-en="Students" data-ar="طلاب"></p></div>
+      <div><h2 class="stat-counter" data-target="150" data-format="plus">0+</h2><p data-en="Live Sessions" data-ar="جلسات مباشرة"></p></div>
+      <div><h2 class="stat-counter" data-target="10" data-format="plus">0+</h2><p data-en="Mentors" data-ar="مدربين"></p></div>
+      <div><h2 class="stat-counter" data-target="100" data-format="percent">0%</h2><p data-en="Education" data-ar="تعليم"></p></div>
     </div>
   </section>
 
@@ -169,6 +169,68 @@
     document.querySelectorAll("[data-en]").forEach(el => {
       el.innerHTML = el.getAttribute("data-en");
     });
+
+    const counters = document.querySelectorAll(".stat-counter");
+    const statsSection = document.querySelector(".stats");
+
+    const formatCounterValue = (value, counter) => {
+      const format = counter.dataset.format || "plus";
+      if (format === "compact-plus") {
+        const compact = value / 1000;
+        const display = compact % 1 === 0 ? compact : compact.toFixed(1);
+        return `${display}K+`;
+      }
+      if (format === "percent") {
+        return `${Math.round(value)}%`;
+      }
+      return `${Math.round(value)}+`;
+    };
+
+    const animateCounter = counter => {
+      const target = Number(counter.dataset.target || 0);
+      if (!target || counter.dataset.animated) {
+        return;
+      }
+
+      const duration = 1000;
+      const startTime = performance.now();
+
+      counter.classList.add("animating");
+
+      const update = now => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const currentValue = Math.floor(progress * target);
+        counter.textContent = formatCounterValue(progress < 1 ? currentValue : target, counter);
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counter.dataset.animated = "true";
+          counter.classList.remove("animating");
+        }
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    if ("IntersectionObserver" in window && counters.length && statsSection) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            counters.forEach(animateCounter);
+            observer.unobserve(statsSection);
+          }
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(statsSection);
+    } else {
+      counters.forEach(counter => {
+        counter.textContent = formatCounterValue(Number(counter.dataset.target || 0), counter);
+        counter.dataset.animated = "true";
+      });
+    }
   </script>
 </body>
 </html>

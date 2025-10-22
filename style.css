@@ -169,6 +169,10 @@ p {
   font-size: 2rem;
 }
 
+.stat-counter.animating {
+  opacity: 0.85;
+}
+
 .stats p {
   color: #ccc;
 }
