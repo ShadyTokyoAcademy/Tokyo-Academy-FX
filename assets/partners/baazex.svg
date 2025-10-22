@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-labelledby="title">
+  <title>Baazex Placeholder Logo</title>
+  <rect width="160" height="40" rx="8" fill="#10121A" />
+  <polygon points="32,12 52,12 60,28 40,28" fill="#6C5CE7" />
+  <text x="110" y="25" font-family="'Poppins', sans-serif" font-weight="600" font-size="16" fill="#6C5CE7" text-anchor="middle">BAAZEX</text>
+</svg>

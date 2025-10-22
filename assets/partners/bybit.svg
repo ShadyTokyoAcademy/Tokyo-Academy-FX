@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-labelledby="title">
+  <title>Bybit Placeholder Logo</title>
+  <rect width="160" height="40" rx="8" fill="#121212" />
+  <circle cx="40" cy="20" r="12" fill="#F4B23C" />
+  <rect x="32" y="12" width="16" height="16" rx="4" fill="#1C1C1C" stroke="#F4B23C" stroke-width="2" />
+  <text x="100" y="25" font-family="'Poppins', sans-serif" font-weight="600" font-size="16" fill="#F4B23C" text-anchor="middle">BYBIT</text>
+</svg>
