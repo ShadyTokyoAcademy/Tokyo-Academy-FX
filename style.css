@@ -353,6 +353,47 @@ footer .socials a:hover {
   color: #fff;
 }
 
+/* FLOATING MESSENGER BUTTONS */
+.float-messenger {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1200;
+}
+
+.messenger-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.messenger-btn img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.messenger-btn.whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.messenger-btn.telegram {
+  background: linear-gradient(135deg, #2aabee, #1e96c8);
+}
+
+.messenger-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
 /* CONTACT PAGE */
 body.contact-page {
   min-height: 100vh;
