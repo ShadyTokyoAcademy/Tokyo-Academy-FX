@@ -103,13 +103,13 @@ p {
   padding: 120px 0;
 }
 
-.hero-inner {
-  position: relative;
-}
-
-.hero-inner > .container {
+.hero .container {
   position: relative;
   z-index: 1;
+}
+
+.hero-content {
+  position: relative;
 }
 
 .hero-candles {
