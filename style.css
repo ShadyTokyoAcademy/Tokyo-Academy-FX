@@ -386,17 +386,7 @@ body.no-scroll {
 }
 
 .partner-card img {
-  height: 80px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  margin: 0 auto;
-  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.25));
-  transition: transform 0.3s ease;
-}
 
-.partner-card:hover img {
-  transform: scale(1.05);
 }
 
 .partner-card h3 {
