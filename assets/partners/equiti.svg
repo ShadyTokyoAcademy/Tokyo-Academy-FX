@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-labelledby="title desc">
+  <title id="title">Equiti logo</title>
+  <desc id="desc">Equiti capital E monogram with turquoise gradient.</desc>
+  <rect width="200" height="120" fill="none" rx="16"/>
+  <defs>
+    <linearGradient id="equitiGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00AFAA"/>
+      <stop offset="100%" stop-color="#007F86"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#equitiGradient)" d="M52 30h96v18H72v12h62v18H72v12h76v18H52V30Z"/>
+  <text x="100" y="108" fill="#00AFAA" font-family="'Poppins', 'Cairo', 'Segoe UI', sans-serif" font-size="28" font-weight="600" text-anchor="middle" letter-spacing="6">EQUITI</text>
+</svg>

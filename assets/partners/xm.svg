@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-labelledby="title desc">
+  <title id="title">XM logo</title>
+  <desc id="desc">XM trading brand mark with red bull icon and white letters on black background.</desc>
+  <rect width="200" height="120" rx="16" fill="#050505"/>
+  <path fill="#E1251B" d="M44 34h28l14 26-14 26H44l14-26-14-26Z"/>
+  <path fill="#FFFFFF" d="M102 34h18l7.5 14.4L135 34h18l-18 32 18 32h-18l-7.5-14.4L120 98h-18l18-32-18-32Z"/>
+</svg>
