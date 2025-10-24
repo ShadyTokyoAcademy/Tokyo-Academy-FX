@@ -361,19 +361,107 @@ body.no-scroll {
   margin-bottom: 30px;
 }
 
-.partners .logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  font-size: 1.2rem;
+.partners .partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
 }
 
-.partners .logos span {
+.partner-card {
   background: #1a1a1a;
-  padding: 10px 20px;
-  border-radius: 6px;
   border: 1px solid #2b2b2b;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 179, 0, 0.5);
+}
+
+
+.partner-card img {
+  height: 80px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  background-color: transparent;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  animation: partnerLogoFade 0.6s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+@keyframes partnerLogoFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.partner-card:hover img {
+  transform: scale(1.05);
+}
+
+.partner-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.partner-button {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb300, #ff6a00);
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-button:hover {
+  filter: brightness(0.85);
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .partners .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+  }
+
+  .partner-card {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners .partners-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }
 
 /* TESTIMONIALS */

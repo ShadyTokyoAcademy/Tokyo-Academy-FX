@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-labelledby="title desc">
+  <title id="title">Baazex logo</title>
+  <desc id="desc">Stylised Baazex wordmark in blue with abstract arrow mark.</desc>
+  <rect width="200" height="120" fill="none" rx="12"/>
+  <path fill="#0E7DC1" d="M36 32c0-6.628 5.372-12 12-12h20c11.046 0 20 8.954 20 20 0 6.333-3.03 12.19-7.897 15.873L118 88h-25.5L63 65.5V88H36V32Zm27 19c5.523 0 10-4.477 10-10s-4.477-10-10-10h-8v20h8Z"/>
+  <text x="128" y="69" fill="#0E7DC1" font-family="'Poppins', 'Cairo', 'Segoe UI', sans-serif" font-size="40" font-weight="700" text-anchor="middle" letter-spacing="4">BAAZEX</text>
+</svg>
