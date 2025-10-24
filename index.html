@@ -45,10 +45,34 @@
   <!-- Stats Section -->
   <section class="stats">
     <div class="container stats-grid">
-      <div><h2>20K+</h2><p data-en="Students" data-ar="طلاب"></p></div>
-      <div><h2>150+</h2><p data-en="Live Sessions" data-ar="جلسات مباشرة"></p></div>
-      <div><h2>10+</h2><p data-en="Mentors" data-ar="مدربين"></p></div>
-      <div><h2>100%</h2><p data-en="Education" data-ar="تعليم"></p></div>
+      <div>
+        <h2>
+          <span class="counter" data-target="20" data-suffix="K+">0</span>
+          <span class="counter-suffix">K+</span>
+        </h2>
+        <p data-en="Students" data-ar="طلاب"></p>
+      </div>
+      <div>
+        <h2>
+          <span class="counter" data-target="150" data-suffix="+">0</span>
+          <span class="counter-suffix">+</span>
+        </h2>
+        <p data-en="Live Sessions" data-ar="جلسات مباشرة"></p>
+      </div>
+      <div>
+        <h2>
+          <span class="counter" data-target="10" data-suffix="+">0</span>
+          <span class="counter-suffix">+</span>
+        </h2>
+        <p data-en="Mentors" data-ar="مدربين"></p>
+      </div>
+      <div>
+        <h2>
+          <span class="counter" data-target="100" data-suffix="%">0</span>
+          <span class="counter-suffix">%</span>
+        </h2>
+        <p data-en="Education" data-ar="تعليم"></p>
+      </div>
     </div>
   </section>
 
@@ -271,6 +295,68 @@
     };
 
     applyLanguage("en");
+
+    const statsSection = document.querySelector(".stats");
+    const counters = document.querySelectorAll(".counter");
+    let hasAnimatedCounters = false;
+
+    const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+    const animateCounter = (counter) => {
+      const target = parseFloat(counter.dataset.target);
+      if (Number.isNaN(target)) return;
+
+      const suffix = counter.dataset.suffix || "";
+      const suffixSpan = counter.nextElementSibling;
+      if (suffixSpan && suffixSpan.classList.contains("counter-suffix")) {
+        suffixSpan.textContent = suffix;
+      }
+
+      const duration = 2000;
+      const startValue = 0;
+      const startTime = performance.now();
+
+      const update = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuad(progress);
+        const currentValue = startValue + (target - startValue) * easedProgress;
+        const formattedValue = Math.round(currentValue).toLocaleString();
+
+        if (suffixSpan && suffixSpan.classList.contains("counter-suffix")) {
+          counter.textContent = formattedValue;
+        } else {
+          counter.textContent = `${formattedValue}${suffix}`;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          const finalValue = Math.round(target).toLocaleString();
+          counter.textContent = suffixSpan && suffixSpan.classList.contains("counter-suffix")
+            ? finalValue
+            : `${finalValue}${suffix}`;
+        }
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    if (statsSection && counters.length) {
+      const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimatedCounters) {
+            hasAnimatedCounters = true;
+            observerInstance.unobserve(entry.target);
+            counters.forEach((counter) => animateCounter(counter));
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      observer.observe(statsSection);
+    }
   </script>
 </body>
 </html>
