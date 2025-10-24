@@ -361,19 +361,27 @@ body.no-scroll {
   margin-bottom: 30px;
 }
 
-.partners .logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  font-size: 1.2rem;
+.partners .partner-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 30px;
+  align-items: center;
 }
 
-.partners .logos span {
-  background: #1a1a1a;
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: 1px solid #2b2b2b;
+.partners .partner-logos img {
+  height: 40px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partners .partner-logos img:hover {
+  transform: translateY(-4px);
+  filter: none;
+  opacity: 1;
 }
 
 /* TESTIMONIALS */

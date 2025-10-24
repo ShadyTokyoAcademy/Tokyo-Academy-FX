@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-labelledby="title">
+  <title>XM Placeholder Logo</title>
+  <rect width="160" height="40" rx="8" fill="#111" />
+  <path d="M30 12h20l-6 16h-8l-6-16z" fill="#E63946" />
+  <text x="105" y="25" font-family="'Poppins', sans-serif" font-weight="700" font-size="18" fill="#FFFFFF" text-anchor="middle">XM</text>
+</svg>

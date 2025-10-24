@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-labelledby="title">
+  <title>Binance Placeholder Logo</title>
+  <rect width="160" height="40" rx="8" fill="#101820" />
+  <path d="M40 20l10-10 10 10-10 10-10-10zm10-4l-4 4 4 4 4-4-4-4zm-10 10l4-4 4 4-4 4-4-4zm20 0l-4-4 4-4 4 4-4 4z" fill="#F3BA2F" />
+  <text x="95" y="25" font-family="'Poppins', sans-serif" font-weight="600" font-size="16" fill="#F3BA2F" text-anchor="middle">BINANCE</text>
+</svg>

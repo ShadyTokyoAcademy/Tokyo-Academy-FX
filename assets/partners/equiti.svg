@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-labelledby="title">
+  <title>Equiti Placeholder Logo</title>
+  <rect width="160" height="40" rx="8" fill="#0F1C1C" />
+  <path d="M32 12h24v4H36v4h16v4H36v4h20v4H32z" fill="#4CD4C0" />
+  <text x="108" y="25" font-family="'Poppins', sans-serif" font-weight="600" font-size="16" fill="#4CD4C0" text-anchor="middle">EQUITI</text>
+</svg>
