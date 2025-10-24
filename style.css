@@ -461,13 +461,12 @@ footer .socials a:hover {
 }
 
 /* FLOATING BUTTONS */
-.float-whatsapp, .float-telegram {
+.float-whatsapp,
+.float-telegram {
   position: fixed;
   bottom: 20px;
-  right: 20px;
   font-size: 1.8rem;
   text-decoration: none;
-  background: linear-gradient(90deg, #25D366, #128C7E);
   color: #fff;
   padding: 12px 14px;
   border-radius: 50%;
@@ -475,9 +474,21 @@ footer .socials a:hover {
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
+.float-whatsapp {
+  left: 20px;
+  background: linear-gradient(90deg, #25D366, #128C7E);
+}
+
 .float-telegram {
-  bottom: 80px;
+  right: 20px;
   background: linear-gradient(90deg, #0088cc, #005f99);
+}
+
+@media (max-width: 600px) {
+  .float-whatsapp,
+  .float-telegram {
+    bottom: 16px;
+  }
 }
 
 /* RESPONSIVE */
