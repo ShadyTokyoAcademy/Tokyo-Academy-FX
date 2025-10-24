@@ -31,7 +31,10 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <div class="container">
+    <div class="hero-candles" aria-hidden="true">
+      <canvas id="candles-canvas"></canvas>
+    </div>
+    <div class="container hero-content">
       <h1 data-en="Start Your Trading Journey Today" data-ar="ابدأ رحلتك في عالم التداول اليوم"></h1>
       <p data-en="Learn Forex, Indices, Commodities & Crypto with professional mentorship and real strategies."
          data-ar="تعلم الفوركس والمؤشرات والسلع والعملات الرقمية بإشراف احترافي واستراتيجيات حقيقية."></p>
@@ -277,6 +280,7 @@
     </div>
   </div>
 
+  <script type="module" src="components/candles.js"></script>
   <!-- Language Toggle Script -->
   <script>
     const toggleBtn = document.getElementById("lang-toggle");
