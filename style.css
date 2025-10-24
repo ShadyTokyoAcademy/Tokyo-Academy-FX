@@ -385,37 +385,6 @@ body.no-scroll {
   border-color: rgba(255, 179, 0, 0.5);
 }
 
-
-.partner-card img {
-  height: 80px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  margin: 0 auto;
-  display: block;
-  background-color: transparent;
-  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.25));
-  opacity: 0;
-  animation: partnerLogoFade 0.6s ease forwards;
-  transition: transform 0.3s ease;
-}
-
-@keyframes partnerLogoFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.partner-card:hover img {
-  transform: scale(1.05);
-}
-
 .partner-card h3 {
   font-size: 1.15rem;
   font-weight: 600;
