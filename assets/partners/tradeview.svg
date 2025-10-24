@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-labelledby="title desc">
+  <title id="title">Tradeview logo</title>
+  <desc id="desc">Tradeview stylised red V mark with grey wordmark.</desc>
+  <rect width="200" height="120" fill="none" rx="16"/>
+  <path fill="#C62033" d="M52 32h28l20 44 20-44h28l-48 84-48-84Z"/>
+  <text x="100" y="110" fill="#C0C5CF" font-family="'Poppins', 'Cairo', 'Segoe UI', sans-serif" font-size="28" font-weight="600" text-anchor="middle" letter-spacing="4">TRADEVIEW</text>
+</svg>
