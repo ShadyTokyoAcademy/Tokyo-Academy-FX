@@ -36,7 +36,7 @@
       <p data-en="Learn Forex, Indices, Commodities & Crypto with professional mentorship and real strategies."
          data-ar="تعلم الفوركس والمؤشرات والسلع والعملات الرقمية بإشراف احترافي واستراتيجيات حقيقية."></p>
       <div class="hero-buttons">
-        <a href="contact.html" class="btn primary" data-en="Join Now" data-ar="انضم الآن">Join Now</a>
+
         <a href="#benefits" class="btn secondary" data-en="Learn More" data-ar="اعرف أكثر">Learn More</a>
       </div>
     </div>
@@ -169,23 +169,121 @@
     </a>
   </div>
 
+  <!-- Registration Modal -->
+  <div id="registration-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="registration-title">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close registration form">×</button>
+      <h2 id="registration-title" data-en="Join Tokyo Academy FX" data-ar="انضم إلى أكاديمية طوكيو إف إكس">Join Tokyo Academy FX</h2>
+      <p class="modal-subtitle" data-en="Complete the form below and our team will contact you soon." data-ar="أكمل النموذج أدناه وسيتواصل معك فريقنا قريبًا.">Complete the form below and our team will contact you soon.</p>
+      <form class="modal-form">
+        <label>
+          <span data-en="Full Name" data-ar="الاسم الكامل">Full Name</span>
+          <input type="text" name="name" placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-ar="محمد أحمد" required />
+        </label>
+        <label>
+          <span data-en="Email" data-ar="البريد الإلكتروني">Email</span>
+          <input type="email" name="email" placeholder="you@example.com" data-placeholder-en="you@example.com" data-placeholder-ar="you@example.com" required />
+        </label>
+        <label>
+          <span data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</span>
+          <input type="tel" name="phone" placeholder="+971 50 000 0000" data-placeholder-en="+971 50 000 0000" data-placeholder-ar="+971 50 000 0000" />
+        </label>
+        <label>
+          <span data-en="Gender" data-ar="النوع">Gender</span>
+          <select name="gender" required>
+            <option value="" disabled selected data-en="Select" data-ar="اختر">Select</option>
+            <option value="female" data-en="Female" data-ar="أنثى">Female</option>
+            <option value="male" data-en="Male" data-ar="ذكر">Male</option>
+            <option value="prefer_not" data-en="Prefer not to say" data-ar="أفضل عدم الإفصاح">Prefer not to say</option>
+          </select>
+        </label>
+        <label>
+          <span data-en="Trading Experience" data-ar="خبرة التداول">Trading Experience</span>
+          <select name="experience">
+            <option value="" disabled selected data-en="Select" data-ar="اختر">Select</option>
+            <option value="beginner" data-en="Beginner" data-ar="مبتدئ">Beginner</option>
+            <option value="intermediate" data-en="Intermediate" data-ar="متوسط">Intermediate</option>
+            <option value="advanced" data-en="Advanced" data-ar="متقدم">Advanced</option>
+          </select>
+        </label>
+        <button type="submit" class="btn primary" data-en="Submit" data-ar="إرسال">Submit</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Language Toggle Script -->
   <script>
     const toggleBtn = document.getElementById("lang-toggle");
     let currentLang = "en";
+    const modal = document.getElementById("registration-modal");
+    const joinBtn = document.getElementById("join-now-btn");
+    const closeBtn = modal.querySelector(".modal-close");
+    const form = modal.querySelector(".modal-form");
+    const successMessages = {
+      en: "Thank you! We'll contact you soon.",
+      ar: "شكرًا لك! سنتواصل معك قريبًا."
+    };
+
+    const toggleModal = (show) => {
+      modal.setAttribute("aria-hidden", String(!show));
+      modal.classList.toggle("open", show);
+      if (show) {
+        document.body.classList.add("no-scroll");
+        modal.querySelector("input[name='name']").focus();
+      } else {
+        document.body.classList.remove("no-scroll");
+        joinBtn.focus();
+      }
+    };
+
+    joinBtn.addEventListener("click", () => toggleModal(true));
+    closeBtn.addEventListener("click", () => toggleModal(false));
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        toggleModal(false);
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("open")) {
+        toggleModal(false);
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      toggleModal(false);
+      alert(successMessages[currentLang]);
+    });
+
     toggleBtn.onclick = () => {
       const html = document.documentElement;
       currentLang = currentLang === "en" ? "ar" : "en";
       toggleBtn.textContent = currentLang === "en" ? "AR" : "EN";
       html.dir = currentLang === "en" ? "ltr" : "rtl";
       html.lang = currentLang;
+      applyLanguage(currentLang);
+    };
+    const applyLanguage = (lang) => {
       document.querySelectorAll("[data-en]").forEach(el => {
-        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        const translated = el.getAttribute(`data-${lang}`);
+        if (!translated) return;
+
+        if (el.tagName === "OPTION" || el.tagName === "BUTTON" || el.tagName === "SPAN" || el.tagName === "A" || el.tagName === "H2" || el.tagName === "P" || el.tagName === "H3" || el.tagName === "H4") {
+          el.textContent = translated;
+        } else {
+          el.innerHTML = translated;
+        }
+      });
+
+      document.querySelectorAll("[data-placeholder-en]").forEach(input => {
+        const translated = input.getAttribute(`data-placeholder-${lang}`);
+        if (translated) {
+          input.setAttribute("placeholder", translated);
+        }
       });
     };
-    document.querySelectorAll("[data-en]").forEach(el => {
-      el.innerHTML = el.getAttribute("data-en");
-    });
+
+    applyLanguage("en");
   </script>
 </body>
 </html>
