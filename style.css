@@ -233,7 +233,7 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: clamp(1rem, 2.2vw, 1.25rem);
+  gap: 20px;
 }
 
 .hero-buttons a,
@@ -363,26 +363,19 @@ p {
     width: clamp(240px, 90vw, 440px);
   }
 
-  .hero-buttons {
-    gap: 0.75rem;
-  }
-
   .hero-buttons a,
   .hero-buttons button {
-    flex: 1 1 calc(50% - 0.75rem);
+    flex: 1 1 100%;
+    width: 100%;
     min-width: auto;
     padding: 0.85rem 1.75rem;
   }
 }
 
 @media (max-width: 520px) {
-  .hero-buttons {
-    gap: 0.6rem;
-  }
-
   .hero-buttons a,
   .hero-buttons button {
-    flex: 1 1 calc(50% - 0.6rem);
+    flex-basis: 100%;
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
   }
