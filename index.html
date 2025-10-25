@@ -351,6 +351,56 @@
 
     applyLanguage("en");
 
+    const revealSections = [
+      document.querySelector(".hero"),
+      document.querySelector(".stats"),
+      document.querySelector(".benefits"),
+      document.querySelector(".steps"),
+      document.querySelector(".toolkit"),
+      document.querySelector(".partners"),
+      document.querySelector(".testimonials"),
+      document.querySelector(".faq"),
+      document.querySelector("footer#contact")
+    ].filter(Boolean);
+
+    const revealObserver = new IntersectionObserver((entries, observerInstance) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const section = entry.target;
+        section.classList.add("is-visible");
+
+        section.querySelectorAll(".stagger-item").forEach((child) => {
+          child.classList.add("is-visible");
+        });
+
+        observerInstance.unobserve(section);
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealSections.forEach((section) => {
+      section.classList.add("scroll-reveal");
+
+      const container = section.querySelector(":scope > .container") || section;
+      let items = Array.from(container.children).filter((child) => child.nodeType === Node.ELEMENT_NODE);
+
+      if (items.length === 1) {
+        const innerItems = Array.from(items[0].children).filter((child) => child.nodeType === Node.ELEMENT_NODE);
+        if (innerItems.length) {
+          items = innerItems;
+        }
+      }
+
+      items.forEach((child, index) => {
+        child.classList.add("stagger-item");
+        child.style.transitionDelay = `${index * 120}ms`;
+      });
+
+      revealObserver.observe(section);
+    });
+
     const statsSection = document.querySelector(".stats");
     const counters = document.querySelectorAll(".counter");
     let hasAnimatedCounters = false;
