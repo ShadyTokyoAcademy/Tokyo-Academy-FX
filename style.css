@@ -284,15 +284,20 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  display: grid;
-  place-items: center;
   width: clamp(320px, 40vw, 580px);
   pointer-events: none;
   z-index: 1;
   --hero-offset-x: 0vw;
-  transform: translate(calc(-50% + var(--hero-offset-x)), -50%);
+  --hero-offset-y: 8%;
+  transform: translate(
+    calc(-50% + var(--hero-offset-x)),
+    calc(-50% + var(--hero-offset-y))
+  );
   filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.6));
   isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 8 / 3;
+  border-radius: clamp(8px, 1vw, 14px);
 }
 
 .hero-bear::before,
@@ -314,11 +319,19 @@ p {
   --hero-offset-x: 42vw;
 }
 
-.hero-bear img,
-.hero-bull img {
+.hero-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-figure img {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: cover;
+  object-position: top center;
 }
 
 @media (max-width: 1024px) {
@@ -327,6 +340,7 @@ p {
     width: clamp(260px, 48vw, 400px);
     top: 52%;
     filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.55));
+    --hero-offset-y: 10%;
   }
 
   .hero-bear {
@@ -344,6 +358,7 @@ p {
     width: clamp(210px, 58vw, 320px);
     top: 54%;
     opacity: 0.65;
+    --hero-offset-y: 12%;
   }
 
   .hero-bear {
@@ -360,6 +375,7 @@ p {
   .hero-bull {
     width: clamp(180px, 70vw, 240px);
     opacity: 0.45;
+    --hero-offset-y: 14%;
   }
 
   .hero-bear {
