@@ -188,21 +188,6 @@ p {
   text-shadow: 0 8px 18px rgba(255, 120, 0, 0.3);
 }
 
-.hero-underline {
-  position: absolute;
-  left: -6%;
-  bottom: -0.55em;
-  width: 112%;
-  height: 18px;
-  pointer-events: none;
-}
-
-.hero-underline path {
-  stroke-width: 3;
-  stroke-linecap: round;
-  fill: none;
-}
-
 .hero-section p {
   margin: 0 auto;
   max-width: 60ch;
