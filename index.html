@@ -32,20 +32,34 @@
   <!-- Hero Section -->
   <section id="home" class="hero hero-section">
     <div class="hero-bear" aria-hidden="true">
-      <img src="assets/images/bear.png" alt="Floating bear illustration" loading="lazy">
+      <img src="assets/images/bear.png" alt="Bear illustration" loading="lazy">
     </div>
     <div class="hero-bull" aria-hidden="true">
-      <img src="assets/images/bull.png" alt="Floating bull illustration" loading="lazy">
+      <img src="assets/images/bull.png" alt="Bull illustration" loading="lazy">
     </div>
-    <canvas id="hero-visual" aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title"
-            data-en="Start Your <span class=&quot;hero-highlight&quot;>Trading</span> Journey Today"
-            data-ar="ابدأ رحلتك في عالم <span class=&quot;hero-highlight&quot;>التداول</span> اليوم">
-          Start Your <span class="hero-highlight">Trading</span> Journey Today
+        <h1 class="hero-title">
+          <span class="hero-line hero-line-primary">
+            <span class="hero-line-text" data-en="Start Your" data-ar="ابدأ رحلتك في عالم">Start Your</span>
+            <span class="hero-highlight">
+              <span class="hero-highlight-text" data-en="Trading" data-ar="التداول">Trading</span>
+              <svg class="hero-underline" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="hero-underline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ff6a00" />
+                    <stop offset="100%" stop-color="#ff3c00" />
+                  </linearGradient>
+                </defs>
+                <path d="M2 16 C 42 24, 78 24, 118 16" stroke="url(#hero-underline-gradient)" stroke-width="3" stroke-linecap="round" fill="none" />
+              </svg>
+            </span>
+          </span>
+          <span class="hero-line hero-line-secondary">
+            <span class="hero-line-text" data-en="Journey Today" data-ar="اليوم">Journey Today</span>
+          </span>
         </h1>
-        <p data-en="Learn Forex, Indices, Commodities & Crypto with professional mentorship and real strategies."
+        <p data-en="Learn Forex, Indices, Commodities &amp; Crypto with professional mentorship and real strategies."
            data-ar="تعلم الفوركس والمؤشرات والسلع والعملات الرقمية بإشراف احترافي واستراتيجيات حقيقية."></p>
         <div class="hero-buttons">
           <button type="button" id="join-now-btn" class="btn primary" data-en="Join Now" data-ar="انضم الآن">Join Now</button>
@@ -290,7 +304,6 @@
     </div>
   </div>
 
-  <script defer src="assets/js/hero-visual.js"></script>
   <!-- Language Toggle Script -->
   <script>
     const toggleBtn = document.getElementById("lang-toggle");
