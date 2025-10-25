@@ -31,13 +31,16 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <div class="container">
-      <h1 data-en="Start Your Trading Journey Today" data-ar="ابدأ رحلتك في عالم التداول اليوم"></h1>
-      <p data-en="Learn Forex, Indices, Commodities & Crypto with professional mentorship and real strategies."
-         data-ar="تعلم الفوركس والمؤشرات والسلع والعملات الرقمية بإشراف احترافي واستراتيجيات حقيقية."></p>
-      <div class="hero-buttons">
-        <button type="button" id="join-now-btn" class="btn primary" data-en="Join Now" data-ar="انضم الآن">Join Now</button>
-        <a href="#benefits" class="btn secondary" data-en="Learn More" data-ar="اعرف أكثر">Learn More</a>
+    <canvas id="hero-visual" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="container">
+        <h1 data-en="Start Your Trading Journey Today" data-ar="ابدأ رحلتك في عالم التداول اليوم"></h1>
+        <p data-en="Learn Forex, Indices, Commodities & Crypto with professional mentorship and real strategies."
+           data-ar="تعلم الفوركس والمؤشرات والسلع والعملات الرقمية بإشراف احترافي واستراتيجيات حقيقية."></p>
+        <div class="hero-buttons">
+          <button type="button" id="join-now-btn" class="btn primary" data-en="Join Now" data-ar="انضم الآن">Join Now</button>
+          <a href="#benefits" class="btn secondary" data-en="Learn More" data-ar="اعرف أكثر">Learn More</a>
+        </div>
       </div>
     </div>
   </section>
@@ -277,6 +280,7 @@
     </div>
   </div>
 
+  <script defer src="assets/js/hero-visual.js"></script>
   <!-- Language Toggle Script -->
   <script>
     const toggleBtn = document.getElementById("lang-toggle");
