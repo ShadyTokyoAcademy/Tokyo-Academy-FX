@@ -135,6 +135,36 @@ p {
   min-height: clamp(62vh, 85vh, 720px);
 }
 
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.24) 50%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0 42px,
+      rgba(12, 12, 12, 0.45) 42px 46px,
+      rgba(255, 255, 255, 0) 46px 90px
+    ),
+    repeating-linear-gradient(
+      rgba(0, 0, 0, 0) 0 70px,
+      rgba(0, 0, 0, 0.28) 70px 76px,
+      rgba(0, 0, 0, 0) 76px 140px
+    );
+  background-size: 100% 100%, 240px 100%, 100% 220px;
+  background-position: center;
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
 .hero-section > *:not(.hero-bear, .hero-bull) {
   position: relative;
   z-index: 2;
