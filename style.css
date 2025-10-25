@@ -127,12 +127,42 @@ p {
   display: grid;
   place-items: center;
   gap: clamp(1.25rem, 2.5vw, 2rem);
-  padding: clamp(3.5rem, 9vw, 5.5rem) clamp(1.5rem, 6vw, 4rem);
+  padding: clamp(2.6rem, 7vw, 4rem) clamp(1.5rem, 6vw, 4rem);
   position: relative;
   text-align: center;
   overflow: hidden;
   isolation: isolate;
-  min-height: clamp(45vh, 62vh, 540px);
+  min-height: clamp(34vh, 48vh, 405px);
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(130deg, rgba(36, 134, 93, 0.18), rgba(255, 135, 54, 0.12) 60%, rgba(15, 15, 15, 0.4)),
+    repeating-linear-gradient(90deg, rgba(33, 150, 108, 0.08) 0 2px, transparent 2px 12px),
+    repeating-linear-gradient(0deg, rgba(255, 150, 80, 0.08) 0 1px, transparent 1px 10px);
+  background-blend-mode: screen, normal;
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 140% 140%;
 }
 
 .hero-section > *:not(.hero-bear, .hero-bull) {
@@ -256,7 +286,7 @@ p {
   width: clamp(240px, 34vw, 420px);
   height: clamp(280px, 42vw, 520px);
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
   transform: translateY(-50%);
   filter: drop-shadow(0 24px 46px rgba(0, 0, 0, 0.58));
   isolation: isolate;
