@@ -9,13 +9,6 @@
     return;
   }
 
-  const palette = [
-    { color: "#ff8c00", glow: "rgba(255, 140, 0, 0.55)" },
-    { color: "#ffb347", glow: "rgba(255, 179, 71, 0.5)" },
-    { color: "#aa2b2b", glow: "rgba(170, 43, 43, 0.45)" },
-    { color: "#00c46a", glow: "rgba(0, 196, 106, 0.5)" }
-  ];
-
   const frameInterval = 1000 / 45; // target ~45fps for subtle motion and lower CPU usage
   const maxDeviceRatio = 2;
   let width = 0;
@@ -28,7 +21,7 @@
 
   function createTrail() {
     const depth = Math.random();
-    const hue = palette[Math.floor(Math.random() * palette.length)];
+
     const typeSeed = Math.random();
     const type = typeSeed < 0.45 ? "candle" : typeSeed < 0.75 ? "line" : "spark";
 
@@ -41,7 +34,7 @@
       depth,
       color: hue.color,
       glow: hue.glow,
-      opacity: randomBetween(0.22, 0.48),
+
       x: width + Math.random() * width,
       baseY: height * (0.15 + Math.random() * 0.7),
       y: 0,
@@ -53,22 +46,18 @@
       bodyWidth: type === "candle" ? randomBetween(3, 6) : 0,
       bodyHeight,
       sparkRadius,
-      shadowBlur: randomBetween(12, 28)
+
     };
   }
 
   function resetTrail(trail) {
-    const hue = palette[Math.floor(Math.random() * palette.length)];
-    trail.color = hue.color;
-    trail.glow = hue.glow;
+
     trail.x = width + Math.random() * width * 0.4;
     trail.baseY = height * (0.15 + Math.random() * 0.7);
     trail.waveSpeed = randomBetween(0.35, 0.9);
     trail.waveHeight = randomBetween(8, 26) + trail.depth * 18;
     trail.phase = Math.random() * Math.PI * 2;
-    trail.opacity = randomBetween(0.22, 0.48);
-    trail.speed = randomBetween(18, 32) + trail.depth * 32;
-    trail.shadowBlur = randomBetween(12, 28);
+
 
     if (trail.type === "line") {
       trail.length = randomBetween(80, 180);
@@ -140,15 +129,12 @@
 
     const bodyGradient = context.createLinearGradient(trail.x, top, trail.x + bodyWidth, top + bodyHeight);
     bodyGradient.addColorStop(0, trail.glow);
-    bodyGradient.addColorStop(0.5, trail.color);
+
     bodyGradient.addColorStop(1, trail.glow);
 
     context.fillStyle = bodyGradient;
     context.fillRect(trail.x, top, bodyWidth, bodyHeight);
 
-    context.fillStyle = trail.color;
-    context.fillRect(trail.x + bodyWidth / 2 - 0.5, top - wickHeight * 0.6, 1, wickHeight * 0.6);
-    context.fillRect(trail.x + bodyWidth / 2 - 0.5, top + bodyHeight, 1, wickHeight * 0.4);
   }
 
   function drawSparkTrail(trail) {
@@ -178,7 +164,7 @@
     lastTickTime = time;
 
     context.clearRect(0, 0, width, height);
-    context.fillStyle = "rgba(10, 12, 18, 0.72)";
+
     context.fillRect(0, 0, width, height);
 
     context.globalCompositeOperation = "lighter";
