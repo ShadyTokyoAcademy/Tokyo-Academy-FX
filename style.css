@@ -207,7 +207,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.05em 0.32em 0.12em;
+  padding: 0.05em 0.32em 0.16em;
 }
 
 .hero-highlight-text {
@@ -217,7 +217,7 @@ p {
   color: transparent;
   text-shadow: 0 6px 18px rgba(255, 149, 0, 0.28), 0 2px 8px rgba(255, 122, 0, 0.4);
   display: inline-block;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .hero-section p {
