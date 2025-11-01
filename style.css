@@ -99,11 +99,11 @@ p {
   -webkit-text-fill-color: transparent;
 }
 
-.logo-image {
-  display: block;
+.nav-logo img {
   height: 24px;
   width: auto;
   margin-right: 8px;
+  vertical-align: middle;
 }
 
 .nav-links {
