@@ -82,11 +82,28 @@ p {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
   font-size: 1.4rem;
   font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo span {
+  display: inline-block;
   background: linear-gradient(90deg, #ffb300, #ff6a00);
+  background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
+}
+
+.logo-image {
+  display: block;
+  height: 24px;
+  width: auto;
+  margin-right: 8px;
 }
 
 .nav-links {
