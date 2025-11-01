@@ -293,7 +293,8 @@ p {
 }
 
 .hero-bear {
-  left: 0;
+  left: -60px;
+  transform: translateY(-50%) scaleX(-1);
 }
 
 .hero-bull {
@@ -326,6 +327,10 @@ p {
     filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.55));
   }
 
+  .hero-bear {
+    transform: translateY(-52%) scaleX(-1);
+  }
+
   .hero-bear img,
   .hero-bull img {
     width: clamp(320px, 70vw, 640px);
@@ -342,6 +347,10 @@ p {
     transform: translateY(-48%);
   }
 
+  .hero-bear {
+    transform: translateY(-48%) scaleX(-1);
+  }
+
   .hero-bear img,
   .hero-bull img {
     width: clamp(280px, 80vw, 520px);
@@ -356,6 +365,10 @@ p {
     opacity: 0.45;
     top: 50%;
     transform: translateY(-42%);
+  }
+
+  .hero-bear {
+    transform: translateY(-42%) scaleX(-1);
   }
 
   .hero-bear img,
