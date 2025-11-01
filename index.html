@@ -23,37 +23,6 @@
           <li><a href="#testimonials" data-en="Testimonials" data-ar="الآراء">Testimonials</a></li>
           <li><a href="#faq" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
           <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
-          <li class="nav-dropdown">
-            <button class="nav-dropdown-toggle" type="button" data-en="Start Trading" data-ar="ابدأ التداول"
-                    aria-haspopup="true" aria-expanded="false" aria-controls="partner-dropdown-menu">
-              Start Trading
-            </button>
-            <ul class="nav-dropdown-menu" id="partner-dropdown-menu" role="menu">
-              <li>
-                <a class="nav-dropdown-link" href="https://baazex.com?ref=kLloUOlrQarIelu" target="_blank" rel="noopener"
-                   role="menuitem" data-en="Baazex" data-ar="بازكس">Baazex</a>
-              </li>
-              <li>
-                <a class="nav-dropdown-link" href="https://clicks.pipaffiliates.com/c?c=1063237&l=ar&p=1" target="_blank"
-                   rel="noopener" role="menuitem" data-en="XM" data-ar="اكس ام">XM</a>
-              </li>
-              <li>
-                <a class="nav-dropdown-link"
-                   href="https://ar.puprime.partners/forex-trading-account/?affid=7523886" target="_blank" rel="noopener"
-                   role="menuitem" data-en="PU Prime" data-ar="بو برايم">PU Prime</a>
-              </li>
-              <li>
-                <a class="nav-dropdown-link"
-                   href="https://portal.my-equiti.com/sc/register/?accountType=Standard&clickid=683961&affid=C01795185"
-                   target="_blank" rel="noopener" role="menuitem" data-en="Equiti" data-ar="إكويتي">Equiti</a>
-              </li>
-              <li>
-                <a class="nav-dropdown-link"
-                   href="https://www.tradeviewmena.com/formIndividual/?ib=2800448" target="_blank" rel="noopener"
-                   role="menuitem" data-en="Tradeview" data-ar="تريدفيو">Tradeview</a>
-              </li>
-            </ul>
-          </li>
         </ul>
       </nav>
       <button id="lang-toggle">AR</button>
@@ -338,111 +307,6 @@
       en: "Thank you! We'll contact you soon.",
       ar: "شكرًا لك! سنتواصل معك قريبًا."
     };
-    const dropdown = document.querySelector(".nav-dropdown");
-    let dropdownController = null;
-
-    if (dropdown) {
-      const dropdownToggle = dropdown.querySelector(".nav-dropdown-toggle");
-      const dropdownMenu = dropdown.querySelector(".nav-dropdown-menu");
-      const dropdownLinks = Array.from(dropdownMenu.querySelectorAll(".nav-dropdown-link"));
-      let isDropdownOpen = false;
-      let closeTimer = null;
-
-      const clearCloseTimer = () => {
-        if (closeTimer) {
-          clearTimeout(closeTimer);
-          closeTimer = null;
-        }
-      };
-
-      const setDropdownOpen = (open) => {
-        if (isDropdownOpen === open) return;
-        isDropdownOpen = open;
-        dropdown.classList.toggle("open", open);
-        dropdownToggle.setAttribute("aria-expanded", String(open));
-      };
-
-      const openMenu = () => {
-        clearCloseTimer();
-        setDropdownOpen(true);
-      };
-
-      const closeMenu = (force = false) => {
-        clearCloseTimer();
-        if (!force && dropdown.contains(document.activeElement)) {
-          return;
-        }
-        setDropdownOpen(false);
-      };
-
-      dropdownToggle.addEventListener("click", (event) => {
-        event.preventDefault();
-        setDropdownOpen(!isDropdownOpen);
-      });
-
-      dropdown.addEventListener("mouseenter", openMenu);
-      dropdown.addEventListener("mouseleave", () => {
-        clearCloseTimer();
-        closeTimer = window.setTimeout(closeMenu, 140);
-      });
-
-      dropdown.addEventListener("focusout", (event) => {
-        if (!dropdown.contains(event.relatedTarget)) {
-          closeMenu(true);
-        }
-      });
-
-      dropdownMenu.addEventListener("focusin", openMenu);
-      dropdownMenu.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeMenu(true);
-          dropdownToggle.focus();
-        }
-      });
-
-      dropdownToggle.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowDown") {
-          event.preventDefault();
-          if (!isDropdownOpen) {
-            openMenu();
-          }
-          dropdownLinks[0]?.focus();
-        } else if (event.key === "ArrowUp") {
-          event.preventDefault();
-          if (!isDropdownOpen) {
-            openMenu();
-          }
-          dropdownLinks[dropdownLinks.length - 1]?.focus();
-        } else if (event.key === "Escape" && isDropdownOpen) {
-          closeMenu(true);
-        }
-      });
-
-      dropdownLinks.forEach((link, index) => {
-        link.addEventListener("click", () => closeMenu(true));
-        link.addEventListener("keydown", (event) => {
-          if (event.key === "ArrowDown") {
-            event.preventDefault();
-            dropdownLinks[(index + 1) % dropdownLinks.length]?.focus();
-          } else if (event.key === "ArrowUp") {
-            event.preventDefault();
-            dropdownLinks[(index - 1 + dropdownLinks.length) % dropdownLinks.length]?.focus();
-          }
-        });
-      });
-
-      document.addEventListener("click", (event) => {
-        if (!dropdown.contains(event.target)) {
-          closeMenu(true);
-        }
-      });
-
-      dropdownController = {
-        close: () => closeMenu(true),
-        isOpen: () => isDropdownOpen,
-        focusToggle: () => dropdownToggle.focus()
-      };
-    }
 
     const toggleModal = (show) => {
       modal.setAttribute("aria-hidden", String(!show));
@@ -464,15 +328,8 @@
       }
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        if (modal.classList.contains("open")) {
-          toggleModal(false);
-        }
-
-        if (dropdownController?.isOpen()) {
-          dropdownController.close();
-          dropdownController.focusToggle();
-        }
+      if (event.key === "Escape" && modal.classList.contains("open")) {
+        toggleModal(false);
       }
     });
 
