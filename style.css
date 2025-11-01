@@ -294,7 +294,6 @@ p {
 
 .hero-bear {
   left: -60px;
-  transform: translateY(-50%);
 }
 
 .hero-bull {
@@ -328,7 +327,6 @@ p {
   }
 
   .hero-bear {
-    transform: translateY(-52%);
   }
 
   .hero-bear img,
@@ -348,7 +346,6 @@ p {
   }
 
   .hero-bear {
-    transform: translateY(-48%);
   }
 
   .hero-bear img,
@@ -368,7 +365,6 @@ p {
   }
 
   .hero-bear {
-    transform: translateY(-42%);
   }
 
   .hero-bear img,
