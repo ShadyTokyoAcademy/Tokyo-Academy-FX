@@ -25,6 +25,16 @@
           <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
         </ul>
       </nav>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-broker-menu" data-en="Start Trading ▼" data-ar="ابدأ التداول ▼">Start Trading ▼</button>
+        <ul id="nav-broker-menu" class="nav-dropdown-menu" role="menu" aria-hidden="true">
+          <li role="none"><a role="menuitem" href="https://baazex.com?ref=kLloUOlrQarIelu" target="_blank" rel="noopener" data-en="Baazex" data-ar="بازكس">Baazex</a></li>
+          <li role="none"><a role="menuitem" href="https://clicks.pipaffiliates.com/c?c=1063237&l=ar&p=1" target="_blank" rel="noopener" data-en="XM" data-ar="اكس ام">XM</a></li>
+          <li role="none"><a role="menuitem" href="https://ar.puprime.partners/forex-trading-account/?affid=7523886" target="_blank" rel="noopener" data-en="PU Prime" data-ar="بو برايم">PU Prime</a></li>
+          <li role="none"><a role="menuitem" href="https://portal.my-equiti.com/sc/register/?accountType=Standard&clickid=683961&affid=C01795185" target="_blank" rel="noopener" data-en="Equiti" data-ar="إكويتي">Equiti</a></li>
+          <li role="none"><a role="menuitem" href="https://www.tradeviewmena.com/formIndividual/?ib=2800448" target="_blank" rel="noopener" data-en="Tradeview" data-ar="تريدفيو">Tradeview</a></li>
+        </ul>
+      </div>
       <button id="lang-toggle">AR</button>
     </div>
   </header>
@@ -303,6 +313,72 @@
     const joinBtn = document.getElementById("join-now-btn");
     const closeBtn = modal.querySelector(".modal-close");
     const form = modal.querySelector(".modal-form");
+    const dropdown = document.querySelector(".nav-dropdown");
+    const dropdownToggle = dropdown ? dropdown.querySelector(".nav-dropdown-toggle") : null;
+    const dropdownMenu = dropdown ? dropdown.querySelector(".nav-dropdown-menu") : null;
+    const dropdownLinks = dropdownMenu ? Array.from(dropdownMenu.querySelectorAll("a")) : [];
+    let isDropdownOpen = false;
+
+    const closeDropdown = ({ focusToggle = true } = {}) => {
+      if (!dropdown || !dropdownToggle || !dropdownMenu) return;
+      if (!isDropdownOpen) return;
+
+      isDropdownOpen = false;
+      dropdown.classList.remove("is-open");
+      dropdownToggle.setAttribute("aria-expanded", "false");
+      dropdownMenu.setAttribute("aria-hidden", "true");
+
+      if (focusToggle) {
+        dropdownToggle.focus({ preventScroll: true });
+      }
+    };
+
+    const openDropdown = () => {
+      if (!dropdown || !dropdownToggle || !dropdownMenu) return;
+      if (isDropdownOpen) return;
+
+      isDropdownOpen = true;
+      dropdown.classList.add("is-open");
+      dropdownToggle.setAttribute("aria-expanded", "true");
+      dropdownMenu.setAttribute("aria-hidden", "false");
+
+      const firstLink = dropdownLinks[0];
+      if (firstLink) {
+        firstLink.focus({ preventScroll: true });
+      }
+    };
+
+    if (dropdown && dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (isDropdownOpen) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      });
+
+      dropdownMenu.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLElement && event.target.closest("a")) {
+          closeDropdown({ focusToggle: false });
+        }
+      });
+
+      dropdown.addEventListener("focusout", (event) => {
+        if (!isDropdownOpen) return;
+        const nextFocus = event.relatedTarget;
+        if (nextFocus instanceof Node && dropdown.contains(nextFocus)) return;
+        closeDropdown({ focusToggle: false });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!isDropdownOpen) return;
+        if (event.target instanceof Node && dropdown.contains(event.target)) return;
+        closeDropdown();
+      });
+    }
+
     const successMessages = {
       en: "Thank you! We'll contact you soon.",
       ar: "شكرًا لك! سنتواصل معك قريبًا."
@@ -328,8 +404,15 @@
       }
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.classList.contains("open")) {
+      if (event.key !== "Escape") return;
+
+      if (modal.classList.contains("open")) {
         toggleModal(false);
+        return;
+      }
+
+      if (isDropdownOpen) {
+        closeDropdown();
       }
     });
 
@@ -340,6 +423,7 @@
     });
 
     toggleBtn.onclick = () => {
+      closeDropdown({ focusToggle: false });
       const html = document.documentElement;
       currentLang = currentLang === "en" ? "ar" : "en";
       toggleBtn.textContent = currentLang === "en" ? "AR" : "EN";
