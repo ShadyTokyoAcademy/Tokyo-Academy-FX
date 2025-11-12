@@ -466,6 +466,7 @@
     const joinBtn = document.getElementById("join-now-btn");
     const closeBtn = modal.querySelector(".modal-close");
     const form = modal.querySelector(".modal-form");
+    const modalContent = modal.querySelector(".modal-content");
     const dropdown = document.querySelector(".nav-dropdown");
     const dropdownToggle = dropdown ? dropdown.querySelector(".nav-dropdown-toggle") : null;
     const dropdownMenu = dropdown ? dropdown.querySelector(".nav-dropdown-menu") : null;
@@ -540,14 +541,68 @@
       ar: "شكرًا لك! سنتواصل معك قريبًا."
     };
 
+    let modalFocusableElements = [];
+    let firstModalFocusable = null;
+    let lastModalFocusable = null;
+
+    const collectModalFocusables = () => {
+      if (!modalContent) {
+        modalFocusableElements = [];
+        firstModalFocusable = null;
+        lastModalFocusable = null;
+        return;
+      }
+
+      modalFocusableElements = Array.from(
+        modalContent.querySelectorAll("input:not([disabled]), button:not([disabled]), a[href]")
+      ).filter((element) => element.offsetParent !== null);
+
+      firstModalFocusable = modalFocusableElements[0] || null;
+      lastModalFocusable = modalFocusableElements[modalFocusableElements.length - 1] || null;
+    };
+
+    const handleModalKeydown = (event) => {
+      if (event.key !== "Tab" || !modal.classList.contains("open")) return;
+      if (!modalFocusableElements.length || !modalContent) return;
+
+      const activeElement = document.activeElement;
+
+      if (event.shiftKey) {
+        if (activeElement === firstModalFocusable || !modalContent.contains(activeElement)) {
+          event.preventDefault();
+          if (lastModalFocusable) {
+            lastModalFocusable.focus({ preventScroll: true });
+          }
+        }
+        return;
+      }
+
+      if (activeElement === lastModalFocusable || !modalContent.contains(activeElement)) {
+        event.preventDefault();
+        if (firstModalFocusable) {
+          firstModalFocusable.focus({ preventScroll: true });
+        }
+      }
+    };
+
     const toggleModal = (show) => {
       modal.setAttribute("aria-hidden", String(!show));
       modal.classList.toggle("open", show);
       if (show) {
         document.body.classList.add("no-scroll");
-        modal.querySelector("input[name='name']").focus();
+        collectModalFocusables();
+        if (modalContent) {
+          modalContent.addEventListener("keydown", handleModalKeydown);
+        }
+        const firstFocusable = firstModalFocusable || modal.querySelector("input[name='name']");
+        if (firstFocusable) {
+          firstFocusable.focus();
+        }
       } else {
         document.body.classList.remove("no-scroll");
+        if (modalContent) {
+          modalContent.removeEventListener("keydown", handleModalKeydown);
+        }
         joinBtn.focus();
       }
     };
