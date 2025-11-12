@@ -1196,18 +1196,10 @@ body.nav-menu-open {
   display: flex;
   flex-direction: column;
 
-}
-
-.footer-trustpilot-card__label {
-  font-size: 0.85rem;
-  color: #b7c3d9;
-}
-
-.footer-trustpilot-card__brand {
-
   font-weight: 600;
   color: #36e29c;
 }
+
 
 
 .footer-trustpilot-card__logo {
