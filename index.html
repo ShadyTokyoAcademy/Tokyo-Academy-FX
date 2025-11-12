@@ -16,8 +16,16 @@
         <img src="assets/images/logo.png" alt="Tokyo Academy FX">
         <span>Tokyo Academy FX</span>
       </a>
-      <nav>
-        <ul class="nav-links">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="nav-toggle__bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="nav-toggle__label" data-en="Menu" data-ar="القائمة">Menu</span>
+      </button>
+      <nav class="nav-primary" aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-navigation">
           <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
           <li><a href="#benefits" data-en="Benefits" data-ar="الفوائد">Benefits</a></li>
           <li><a href="#steps" data-en="Steps" data-ar="الخطوات">Steps</a></li>
@@ -40,6 +48,7 @@
       </div>
       <button id="lang-toggle">AR</button>
     </div>
+    <div class="nav-backdrop" aria-hidden="true" hidden></div>
   </header>
 
   <!-- Hero Section -->
@@ -470,10 +479,134 @@
     const dropdownToggle = dropdown ? dropdown.querySelector(".nav-dropdown-toggle") : null;
     const dropdownMenu = dropdown ? dropdown.querySelector(".nav-dropdown-menu") : null;
     const dropdownLinks = dropdownMenu ? Array.from(dropdownMenu.querySelectorAll("a")) : [];
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.getElementById("primary-navigation");
+    const navBackdrop = document.querySelector(".nav-backdrop");
+    const mobileMenuFocusableSelector = "a[href], button:not([disabled]), [tabindex]:not([tabindex=\"-1\"])";
+    const mobileMediaQuery = window.matchMedia("(max-width: 768px)");
     const faqToggleButton = document.querySelector(".faq-toggle-button");
     const faqExtra = document.getElementById("faq-extra-group");
     const faqItems = Array.from(document.querySelectorAll(".faq-item"));
     let isDropdownOpen = false;
+    const isMobileMenuOpen = () => Boolean(navLinks && navLinks.classList.contains("is-mobile-open"));
+
+    const updateMobileMenuAria = () => {
+      if (!navLinks) return;
+      const shouldHide = mobileMediaQuery.matches && !isMobileMenuOpen();
+      navLinks.setAttribute("aria-hidden", String(shouldHide));
+    };
+
+    const focusFirstMobileMenuItem = () => {
+      if (!navLinks) return;
+      const firstItem = navLinks.querySelector(mobileMenuFocusableSelector);
+      if (firstItem instanceof HTMLElement) {
+        firstItem.focus({ preventScroll: true });
+      }
+    };
+
+    const closeMobileMenu = ({ focusToggle = true } = {}) => {
+      if (!navToggle || !navLinks || !navBackdrop) return;
+      if (!isMobileMenuOpen()) return;
+
+      navLinks.classList.remove("is-mobile-open");
+      navToggle.classList.remove("is-active");
+      navToggle.setAttribute("aria-expanded", "false");
+      navBackdrop.classList.remove("is-active");
+      navBackdrop.setAttribute("hidden", "");
+      document.body.classList.remove("nav-menu-open");
+      updateMobileMenuAria();
+
+      if (focusToggle) {
+        navToggle.focus({ preventScroll: true });
+      }
+    };
+
+    const openMobileMenu = () => {
+      if (!navToggle || !navLinks || !navBackdrop) return;
+      if (isMobileMenuOpen()) return;
+
+      closeDropdown({ focusToggle: false });
+
+      navLinks.classList.add("is-mobile-open");
+      navToggle.classList.add("is-active");
+      navToggle.setAttribute("aria-expanded", "true");
+      navBackdrop.classList.add("is-active");
+      navBackdrop.removeAttribute("hidden");
+      document.body.classList.add("nav-menu-open");
+      navLinks.setAttribute("aria-hidden", "false");
+      focusFirstMobileMenuItem();
+    };
+
+    const handleMobileMenuTabNavigation = (event) => {
+      if (!isMobileMenuOpen()) return;
+      if (event.key !== "Tab" || !navToggle || !navLinks) return;
+
+      const focusableItems = Array.from(navLinks.querySelectorAll(mobileMenuFocusableSelector))
+        .filter((el) => el instanceof HTMLElement);
+      const firstItem = focusableItems[0];
+      const lastItem = focusableItems[focusableItems.length - 1] || null;
+
+      if (event.shiftKey) {
+        if (document.activeElement === navToggle) {
+          event.preventDefault();
+          (lastItem || navToggle).focus({ preventScroll: true });
+        } else if (firstItem && document.activeElement === firstItem) {
+          event.preventDefault();
+          navToggle.focus({ preventScroll: true });
+        }
+      } else {
+        if (document.activeElement === navToggle) {
+          event.preventDefault();
+          (firstItem || navToggle).focus({ preventScroll: true });
+        } else if (lastItem && document.activeElement === lastItem) {
+          event.preventDefault();
+          navToggle.focus({ preventScroll: true });
+        }
+      }
+    };
+
+    const handleMobileMenuMediaChange = (event) => {
+      if (!navLinks) return;
+      if (!event.matches) {
+        closeMobileMenu({ focusToggle: false });
+        if (navBackdrop) {
+          navBackdrop.classList.remove("is-active");
+          navBackdrop.setAttribute("hidden", "");
+        }
+        document.body.classList.remove("nav-menu-open");
+      }
+      updateMobileMenuAria();
+    };
+
+    updateMobileMenuAria();
+    if (typeof mobileMediaQuery.addEventListener === "function") {
+      mobileMediaQuery.addEventListener("change", handleMobileMenuMediaChange);
+    } else if (typeof mobileMediaQuery.addListener === "function") {
+      mobileMediaQuery.addListener(handleMobileMenuMediaChange);
+    }
+
+    if (navToggle && navLinks && navBackdrop) {
+      navToggle.addEventListener("click", () => {
+        if (isMobileMenuOpen()) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+
+      navBackdrop.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+
+      navLinks.addEventListener("click", (event) => {
+        const target = event.target instanceof HTMLElement ? event.target.closest("a") : null;
+        if (target) {
+          closeMobileMenu({ focusToggle: false });
+        }
+      });
+
+      document.addEventListener("keydown", handleMobileMenuTabNavigation);
+    }
 
     const closeDropdown = ({ focusToggle = true } = {}) => {
       if (!dropdown || !dropdownToggle || !dropdownMenu) return;
@@ -567,6 +700,11 @@
         return;
       }
 
+      if (isMobileMenuOpen()) {
+        closeMobileMenu();
+        return;
+      }
+
       if (isDropdownOpen) {
         closeDropdown();
       }
@@ -638,6 +776,7 @@
 
     toggleBtn.onclick = () => {
       closeDropdown({ focusToggle: false });
+      closeMobileMenu({ focusToggle: false });
       const html = document.documentElement;
       currentLang = currentLang === "en" ? "ar" : "en";
       toggleBtn.textContent = currentLang === "en" ? "AR" : "EN";
