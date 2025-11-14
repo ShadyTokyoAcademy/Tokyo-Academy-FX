@@ -18,7 +18,8 @@
 html, body {
   background: #0b0b0b;
   color: #fff;
-  font-family: 'Poppins', 'Cairo', sans-serif;
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+  font-weight: 400;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -55,8 +56,24 @@ html, body {
   margin: auto;
 }
 
-h1, h2, h3, h4 {
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+h2,
+h3,
+h4,
+.modal-subtitle {
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 p {
@@ -243,7 +260,8 @@ img {
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   transition: 0.3s;
 }
 
@@ -267,7 +285,7 @@ img {
   cursor: pointer;
   color: #111;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -434,7 +452,8 @@ img {
   gap: clamp(0.05em, 0.24vw, 0.12em);
   font-size: clamp(2.75rem, 6vw, 5rem);
   line-height: 1.08;
-  font-weight: 700;
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+  font-weight: 800;
   letter-spacing: -0.01em;
   margin: 0;
 }
@@ -576,6 +595,7 @@ img {
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
+  letter-spacing: 0.02em;
   transition: 0.3s;
   border: none;
   cursor: pointer;
@@ -868,7 +888,7 @@ body.nav-menu-open {
   color: #111;
   text-decoration: none;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.02em;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
