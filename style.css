@@ -542,12 +542,6 @@ p {
 }
 
 @media (max-width: 640px) {
-  .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
   .hero-bear,
   .hero-bull {
     width: clamp(130px, 64vw, 190px);
@@ -573,19 +567,17 @@ p {
 
   .hero-buttons a,
   .hero-buttons button {
-    flex: 1 1 auto;
     width: 100%;
     min-width: 0;
-    padding: 0.8rem 1.6rem;
+    padding: 0.85rem 1.6rem;
   }
 }
 
 @media (max-width: 520px) {
   .hero-buttons a,
   .hero-buttons button {
-    flex: 0 0 auto;
-    width: auto;
-    padding: 0.75rem 1.4rem;
+    width: 100%;
+    padding: 0.75rem 1.35rem;
     font-size: 0.95rem;
   }
 }
@@ -1452,7 +1444,24 @@ body.nav-menu-open {
   }
 
   .hero-section .hero-title {
-    font-size: clamp(2.1rem, 8vw, 3.25rem);
+    font-size: clamp(1.8rem, 7.2vw, 3.1rem);
+    text-wrap: balance;
+    hyphens: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 420px);
+    margin-inline: auto;
+    gap: clamp(0.75rem, 3vw, 1.1rem);
+  }
+
+  .hero-buttons a,
+  .hero-buttons button {
+    width: 100%;
+    max-width: 100%;
   }
 
   .steps-grid,
