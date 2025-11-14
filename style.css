@@ -1178,10 +1178,6 @@ body.nav-menu-open {
 .footer-trustpilot-card:focus-visible {
   transform: translateY(-2px);
 
-}
-
-.footer-trustpilot-card:focus-visible {
-  outline: 2px solid rgba(50, 231, 137, 0.8);
   outline-offset: 3px;
 }
 
@@ -1200,12 +1196,6 @@ body.nav-menu-open {
   color: #36e29c;
 }
 
-
-
-.footer-trustpilot-card__logo {
-  margin-left: auto;
-  height: 36px;
-  width: auto;
 
 }
 
