@@ -495,7 +495,7 @@ p {
   object-position: left center;
 }
 
-/* Responsive overrides are consolidated near the end of the file */
+
 
 .btn {
   display: inline-flex;
@@ -1225,10 +1225,23 @@ body.nav-menu-open {
   }
 }
 
-@media (max-width: 767px) {
-  /* Mobile */
+
   .nav-inner {
-    gap: 0.75rem;
+    gap: clamp(0.4rem, 1.5vw, 0.75rem);
+    flex-wrap: nowrap;
+  }
+
+  .nav-inner > * {
+    min-width: 0;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .nav-logo img {
+    height: 20px;
+    margin-right: 6px;
   }
 
   .nav-toggle {
@@ -1238,6 +1251,23 @@ body.nav-menu-open {
 
   .nav-primary {
     flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .nav-dropdown {
+    margin-left: 0.5rem;
+  }
+
+  .nav-dropdown-toggle {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  #lang-toggle {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   .nav-links {
@@ -1290,6 +1320,7 @@ body.nav-menu-open {
   .nav-dropdown.is-open .nav-dropdown-menu {
     transform: translate3d(0, 0, 0);
   }
+
 
   html[dir="rtl"] .nav-links {
     inset: 0 auto 0 0;
