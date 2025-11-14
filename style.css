@@ -1559,13 +1559,13 @@ body.nav-menu-open {
   }
 
   .hero-bear {
-    left: clamp(-160px, -14vw, -70px);
-    transform: translate(10%, -50%);
+    left: clamp(-150px, -13vw, -70px);
+    transform: translateX(12%) translateY(-55%);
   }
 
   .hero-bull {
-    right: clamp(-140px, -12vw, -60px);
-    transform: translate(-12%, -50%);
+    right: clamp(-150px, -13vw, -70px);
+    transform: translateX(-12%) translateY(-55%);
   }
 
   .hero-bear img,
