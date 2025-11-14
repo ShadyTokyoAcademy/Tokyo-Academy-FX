@@ -391,13 +391,13 @@ img {
   color: #ffffff;
   display: grid;
   place-items: center;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
-  padding: clamp(2.6rem, 7vw, 4rem) clamp(1.5rem, 6vw, 4rem);
+  gap: clamp(1.2rem, 2.3vw, 1.75rem);
+  padding: clamp(2.2rem, 6vw, 3.5rem) clamp(1.35rem, 5.5vw, 3.5rem);
   position: relative;
   text-align: center;
   overflow: hidden;
   isolation: isolate;
-  min-height: clamp(34vh, 48vh, 405px);
+  min-height: clamp(30vh, 44vh, 360px);
 }
 
 .hero-section::before {
@@ -440,7 +440,7 @@ img {
 .hero-section .hero-content {
   display: grid;
   justify-items: center;
-  gap: clamp(1rem, 2.6vw, 1.5rem);
+  gap: clamp(0.9rem, 2vw, 1.1rem);
   width: min(100%, 640px);
   margin: 0 auto;
 }
@@ -451,19 +451,27 @@ img {
   align-items: center;
   gap: clamp(0.05em, 0.24vw, 0.12em);
   font-size: clamp(2.75rem, 6vw, 5rem);
-  line-height: 1.08;
+  line-height: 1.15;
   font-family: 'Montserrat', 'Poppins', sans-serif;
-  font-weight: 800;
   letter-spacing: -0.01em;
   margin: 0;
+}
+
+.hero-line-primary {
+  font-weight: 700;
+}
+
+.hero-line-secondary {
+  font-weight: 600;
 }
 
 .hero-line {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.2em;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .hero-line-text {
@@ -498,10 +506,11 @@ img {
 .hero-buttons {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
+  padding-block: clamp(1rem, 2.4vw, 1.25rem);
 }
 
 .hero-buttons a,
@@ -1388,12 +1397,12 @@ body.nav-menu-open {
    ================================================ */
 @media (min-width: 1200px) {
   .hero-section {
-    padding-block: clamp(3rem, 8vw, 5rem);
-    min-height: clamp(52vh, 68vh, 760px);
+    padding-block: clamp(2.75rem, 7vw, 4.25rem);
+    min-height: clamp(48vh, 62vh, 680px);
   }
 
   .hero-section .hero-content {
-    gap: 2.25rem;
+    gap: clamp(1.35rem, 2.4vw, 1.75rem);
     align-content: center;
     align-items: center;
     justify-items: center;
@@ -1728,16 +1737,16 @@ body.nav-menu-open {
   }
 
   .hero-section {
-    padding: clamp(3rem, 12vw, 4rem) clamp(1.25rem, 7vw, 2.25rem);
-    min-height: clamp(520px, 100vh, 660px);
+    padding: clamp(2.5rem, 11vw, 3.5rem) clamp(1.1rem, 6.5vw, 2rem);
+    min-height: clamp(460px, 92vh, 600px);
   }
 
   .hero-section .hero-content {
-    gap: clamp(1.25rem, 6vw, 2rem);
+    gap: clamp(1rem, 5.5vw, 1.5rem);
   }
 
   .hero-section .hero-title {
-    font-size: clamp(2.2rem, 9.5vw, 3rem);
+    font-size: clamp(1.65rem, 7.2vw, 2.3rem);
   }
 
   .hero-section p {
@@ -1768,17 +1777,9 @@ body.nav-menu-open {
     width: clamp(240px, 88vw, 340px);
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-    gap: clamp(0.75rem, 4vw, 1rem);
-    width: min(100%, 360px);
-  }
-
   .hero-buttons a,
   .hero-buttons button {
-    width: 100%;
-    min-width: 0;
+    min-width: clamp(9rem, 42vw, 10.5rem);
     padding: clamp(0.75rem, 4.5vw, 0.95rem) clamp(1.05rem, 11vw, 1.65rem);
     font-size: clamp(0.92rem, 4vw, 1.05rem);
   }
