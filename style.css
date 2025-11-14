@@ -518,40 +518,51 @@ p {
 @media (max-width: 768px) {
   .hero-bear,
   .hero-bull {
-    width: clamp(180px, 52vw, 300px);
-    height: clamp(220px, 60vw, 360px);
+    width: clamp(160px, 48vw, 260px);
+    height: clamp(200px, 56vw, 320px);
     top: 50%;
     opacity: 0.65;
     transform: translateY(-50%);
+    z-index: 0;
+    mix-blend-mode: screen;
   }
 
   .hero-bear {
-    left: clamp(-120px, -12vw, -60px);
+    left: clamp(-200px, -24vw, -100px);
+  }
+
+  .hero-bull {
+    right: clamp(-200px, -24vw, -100px);
   }
 
   .hero-bear img,
   .hero-bull img {
-    width: clamp(280px, 80vw, 520px);
+    width: clamp(240px, 85vw, 420px);
   }
 }
 
 @media (max-width: 640px) {
   .hero-bear,
   .hero-bull {
-    width: clamp(150px, 72vw, 220px);
-    height: clamp(190px, 72vw, 280px);
+    width: clamp(130px, 64vw, 190px);
+    height: clamp(170px, 68vw, 260px);
     opacity: 0.45;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 0;
   }
 
   .hero-bear {
-    left: clamp(-90px, -10vw, -40px);
+    left: clamp(-220px, -28vw, -120px);
+  }
+
+  .hero-bull {
+    right: clamp(-220px, -28vw, -120px);
   }
 
   .hero-bear img,
   .hero-bull img {
-    width: clamp(240px, 90vw, 440px);
+    width: clamp(200px, 95vw, 360px);
   }
 
   .hero-buttons a,
