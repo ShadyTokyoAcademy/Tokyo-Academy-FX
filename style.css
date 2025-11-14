@@ -1232,6 +1232,20 @@ body.nav-menu-open {
 /* ================================================
    RESPONSIVE BREAKPOINTS
    ================================================ */
+@media (min-width: 1200px) {
+  .hero-section {
+    padding-block: clamp(3rem, 8vw, 5rem);
+    min-height: clamp(52vh, 68vh, 760px);
+  }
+
+  .hero-section .hero-content {
+    gap: 2.25rem;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   /* Tablet */
   .hero-bear,
