@@ -479,6 +479,10 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram logo" width="32" height="32" />
   </a>
 
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
   <!-- Registration Modal -->
   <div id="registration-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="registration-title">
     <div class="modal-content">
@@ -545,6 +549,10 @@
     const mobileMediaQuery = window.matchMedia("(max-width: 1024px)");
     const faqToggleButton = document.querySelector(".faq-toggle-button");
     const faqExtra = document.getElementById("faq-extra-group");
+    const backToTopButton = document.querySelector(".back-to-top");
+    const telegramFloat = document.querySelector(".float-telegram");
+    const whatsappFloat = document.querySelector(".float-whatsapp");
+    const compactFloatMediaQuery = window.matchMedia("(max-width: 767px)");
     const faqItems = Array.from(document.querySelectorAll(".faq-item"));
     let isDropdownOpen = false;
     let isMobileDropdownOpen = false;
@@ -1120,6 +1128,64 @@
 
       observer.observe(statsSection);
     }
+
+    const BACK_TO_TOP_SCROLL_TRIGGER = 400;
+
+    const getFloatButtonHeight = () => {
+      const referenceButton = telegramFloat || whatsappFloat;
+      if (!referenceButton) {
+        return 64;
+      }
+
+      const measuredHeight = referenceButton.offsetHeight;
+      return measuredHeight > 0 ? measuredHeight : 64;
+    };
+
+    const getFloatBaseOffset = () => (compactFloatMediaQuery.matches ? 16 : 20);
+
+    const updateBackToTopPosition = () => {
+      if (!backToTopButton) return;
+
+      const baseOffset = getFloatBaseOffset();
+      const referenceHeight = getFloatButtonHeight();
+      const gap = compactFloatMediaQuery.matches ? 14 : 16;
+
+      backToTopButton.style.bottom = `${baseOffset + referenceHeight + gap}px`;
+    };
+
+    const updateBackToTopVisibility = () => {
+      if (!backToTopButton) return;
+
+      if (window.scrollY > BACK_TO_TOP_SCROLL_TRIGGER) {
+        backToTopButton.classList.add("back-to-top--visible");
+      } else {
+        backToTopButton.classList.remove("back-to-top--visible");
+      }
+    };
+
+    const initializeBackToTop = () => {
+      if (!backToTopButton) return;
+
+      updateBackToTopPosition();
+      updateBackToTopVisibility();
+
+      window.addEventListener("scroll", updateBackToTopVisibility);
+      window.addEventListener("resize", updateBackToTopPosition);
+      window.addEventListener("orientationchange", updateBackToTopPosition);
+
+      if (typeof compactFloatMediaQuery.addEventListener === "function") {
+        compactFloatMediaQuery.addEventListener("change", updateBackToTopPosition);
+      } else if (typeof compactFloatMediaQuery.addListener === "function") {
+        compactFloatMediaQuery.addListener(updateBackToTopPosition);
+      }
+
+      backToTopButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    };
+
+    initializeBackToTop();
   </script>
 </body>
 </html>
