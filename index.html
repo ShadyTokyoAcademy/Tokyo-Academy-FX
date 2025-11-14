@@ -16,16 +16,14 @@
         <img src="assets/images/logo.png" alt="Tokyo Academy FX">
         <span>Tokyo Academy FX</span>
       </a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">
-        <span class="nav-toggle__bars" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span class="nav-toggle__label" data-en="Menu" data-ar="القائمة">Menu</span>
-      </button>
       <nav class="nav-primary" aria-label="Primary navigation">
         <ul class="nav-links" id="primary-navigation">
+          <li class="nav-links__item nav-links__item--close">
+            <button type="button" class="nav-close-button" aria-label="Close menu">
+              <span aria-hidden="true">&times;</span>
+              <span class="nav-close-button__label" data-en="Close" data-ar="إغلاق">Close</span>
+            </button>
+          </li>
           <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
           <li><a href="#benefits" data-en="Benefits" data-ar="الفوائد">Benefits</a></li>
           <li><a href="#steps" data-en="Steps" data-ar="الخطوات">Steps</a></li>
@@ -47,6 +45,13 @@
         </ul>
       </div>
       <button id="lang-toggle">AR</button>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu">
+        <span class="nav-toggle__bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
     </div>
     <div class="nav-backdrop" aria-hidden="true" hidden></div>
   </header>
@@ -484,8 +489,9 @@
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.getElementById("primary-navigation");
     const navBackdrop = document.querySelector(".nav-backdrop");
+    const navCloseButton = navLinks ? navLinks.querySelector(".nav-close-button") : null;
     const mobileMenuFocusableSelector = "a[href], button:not([disabled]), [tabindex]:not([tabindex=\"-1\"])";
-    const mobileMediaQuery = window.matchMedia("(max-width: 1199px)");
+    const mobileMediaQuery = window.matchMedia("(max-width: 1024px)");
     const faqToggleButton = document.querySelector(".faq-toggle-button");
     const faqExtra = document.getElementById("faq-extra-group");
     const faqItems = Array.from(document.querySelectorAll(".faq-item"));
@@ -500,6 +506,12 @@
 
     const focusFirstMobileMenuItem = () => {
       if (!navLinks) return;
+      const firstLink = navLinks.querySelector("a[href]");
+      if (firstLink instanceof HTMLElement) {
+        firstLink.focus({ preventScroll: true });
+        return;
+      }
+
       const firstItem = navLinks.querySelector(mobileMenuFocusableSelector);
       if (firstItem instanceof HTMLElement) {
         firstItem.focus({ preventScroll: true });
@@ -513,6 +525,7 @@
       navLinks.classList.remove("is-mobile-open");
       navToggle.classList.remove("is-active");
       navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Toggle menu");
       navBackdrop.classList.remove("is-active");
       navBackdrop.setAttribute("hidden", "");
       document.body.classList.remove("nav-menu-open");
@@ -532,6 +545,7 @@
       navLinks.classList.add("is-mobile-open");
       navToggle.classList.add("is-active");
       navToggle.setAttribute("aria-expanded", "true");
+      navToggle.setAttribute("aria-label", "Close menu");
       navBackdrop.classList.add("is-active");
       navBackdrop.removeAttribute("hidden");
       document.body.classList.add("nav-menu-open");
@@ -608,6 +622,12 @@
       });
 
       document.addEventListener("keydown", handleMobileMenuTabNavigation);
+    }
+
+    if (navCloseButton) {
+      navCloseButton.addEventListener("click", () => {
+        closeMobileMenu();
+      });
     }
 
     const closeDropdown = ({ focusToggle = true } = {}) => {
