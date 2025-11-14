@@ -1179,7 +1179,7 @@ body.nav-menu-open {
   margin-top: 0.5rem;
   align-items: center;
   justify-content: center;
-  align-self: flex-start;
+  align-self: center;
 }
 
 .footer-contact-socials__link {
@@ -1211,7 +1211,7 @@ body.nav-menu-open {
 .footer-contact-socials__link:hover,
 .footer-contact-socials__link:focus-visible {
   transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(255, 145, 0, 0.55);
 }
 
 .footer-contact-socials__link--instagram {
