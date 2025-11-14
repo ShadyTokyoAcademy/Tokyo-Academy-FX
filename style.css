@@ -518,26 +518,30 @@ p {
 @media (max-width: 768px) {
   .hero-bear,
   .hero-bull {
-    width: clamp(160px, 48vw, 260px);
-    height: clamp(200px, 56vw, 320px);
+    width: clamp(12rem, 48vw, 16.5rem);
+    height: clamp(12.5rem, 52vw, 18rem);
+    left: 50%;
+    right: auto;
     top: 50%;
     opacity: 0.65;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     z-index: 0;
     mix-blend-mode: screen;
   }
 
   .hero-bear {
-    left: clamp(-200px, -24vw, -100px);
+    top: 38%;
   }
 
   .hero-bull {
-    right: clamp(-200px, -24vw, -100px);
+    top: 74%;
   }
 
   .hero-bear img,
   .hero-bull img {
-    width: clamp(240px, 85vw, 420px);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -550,25 +554,29 @@ p {
 
   .hero-bear,
   .hero-bull {
-    width: clamp(130px, 64vw, 190px);
-    height: clamp(170px, 68vw, 260px);
+    width: clamp(10rem, 62vw, 15rem);
+    height: clamp(11rem, 66vw, 17rem);
     opacity: 0.45;
+    left: 50%;
+    right: auto;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     z-index: 0;
   }
 
   .hero-bear {
-    left: clamp(-220px, -28vw, -120px);
+    top: 34%;
   }
 
   .hero-bull {
-    right: clamp(-220px, -28vw, -120px);
+    top: 76%;
   }
 
   .hero-bear img,
   .hero-bull img {
-    width: clamp(200px, 95vw, 360px);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .hero-buttons a,
