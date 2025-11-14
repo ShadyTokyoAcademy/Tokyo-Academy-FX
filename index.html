@@ -32,10 +32,31 @@
           <li><a href="#testimonials" data-en="Testimonials" data-ar="الآراء">Testimonials</a></li>
           <li><a href="#faq" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
           <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+          <li class="nav-links__item nav-links__item--dropdown">
+            <button
+              type="button"
+              class="nav-links__dropdown-toggle"
+              aria-expanded="false"
+              aria-controls="mobile-broker-menu"
+            >
+              <span class="nav-links__dropdown-label" data-en="Start Trading" data-ar="ابدأ التداول">Start Trading</span>
+              <span class="nav-links__dropdown-icon" aria-hidden="true">▼</span>
+            </button>
+            <ul id="mobile-broker-menu" class="nav-links__dropdown-menu" aria-hidden="true">
+              <li><a href="https://baazex.com" target="_blank" rel="noopener" data-en="Baazex" data-ar="بازكس">Baazex</a></li>
+              <li><a href="https://clicks.pipaffiliates.com/c?c=630518&l=en&p=1" target="_blank" rel="noopener" data-en="XM" data-ar="اكس ام">XM</a></li>
+              <li><a href="https://www.puprime.com" target="_blank" rel="noopener" data-en="PU Prime" data-ar="بو برايم">PU Prime</a></li>
+              <li><a href="https://www.equiti.com/en" target="_blank" rel="noopener" data-en="Equiti" data-ar="إكويتي">Equiti</a></li>
+              <li><a href="https://www.tradeviewforex.com" target="_blank" rel="noopener" data-en="Tradeview" data-ar="تريدفيو">Tradeview</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <div class="nav-dropdown">
-        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-broker-menu" data-en="Start Trading ▼" data-ar="ابدأ التداول ▼">Start Trading ▼</button>
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-broker-menu">
+          <span class="nav-dropdown-toggle__label" data-en="Start Trading" data-ar="ابدأ التداول">Start Trading</span>
+          <span class="nav-dropdown-toggle__icon" aria-hidden="true">▼</span>
+        </button>
         <ul id="nav-broker-menu" class="nav-dropdown-menu" role="menu" aria-hidden="true">
           <li role="none"><a role="menuitem" href="https://baazex.com" target="_blank" rel="noopener" data-en="Baazex" data-ar="بازكس">Baazex</a></li>
           <li role="none"><a role="menuitem" href="https://clicks.pipaffiliates.com/c?c=630518&l=en&p=1" target="_blank" rel="noopener" data-en="XM" data-ar="اكس ام">XM</a></li>
@@ -490,12 +511,16 @@
     const navLinks = document.getElementById("primary-navigation");
     const navBackdrop = document.querySelector(".nav-backdrop");
     const navCloseButton = navLinks ? navLinks.querySelector(".nav-close-button") : null;
+    const mobileDropdown = navLinks ? navLinks.querySelector(".nav-links__item--dropdown") : null;
+    const mobileDropdownToggle = mobileDropdown ? mobileDropdown.querySelector(".nav-links__dropdown-toggle") : null;
+    const mobileDropdownMenu = mobileDropdown ? mobileDropdown.querySelector(".nav-links__dropdown-menu") : null;
     const mobileMenuFocusableSelector = "a[href], button:not([disabled]), [tabindex]:not([tabindex=\"-1\"])";
     const mobileMediaQuery = window.matchMedia("(max-width: 1024px)");
     const faqToggleButton = document.querySelector(".faq-toggle-button");
     const faqExtra = document.getElementById("faq-extra-group");
     const faqItems = Array.from(document.querySelectorAll(".faq-item"));
     let isDropdownOpen = false;
+    let isMobileDropdownOpen = false;
     const isMobileMenuOpen = () => Boolean(navLinks && navLinks.classList.contains("is-mobile-open"));
 
     const updateMobileMenuAria = () => {
@@ -518,10 +543,47 @@
       }
     };
 
+    const closeMobileDropdown = ({ focusToggle = true, immediate = false } = {}) => {
+      if (!mobileDropdown || !mobileDropdownToggle || !mobileDropdownMenu) return;
+
+      if (!isMobileDropdownOpen && !mobileDropdown.classList.contains("is-expanded")) {
+        mobileDropdownMenu.setAttribute("aria-hidden", "true");
+        mobileDropdownToggle.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      isMobileDropdownOpen = false;
+      mobileDropdown.classList.remove("is-expanded");
+      mobileDropdownToggle.setAttribute("aria-expanded", "false");
+      mobileDropdownMenu.setAttribute("aria-hidden", "true");
+
+      if (immediate) {
+        mobileDropdownMenu.style.transition = "none";
+        // Force reflow before removing the override so the collapse feels instantaneous.
+        void mobileDropdownMenu.offsetHeight;
+        mobileDropdownMenu.style.removeProperty("transition");
+      }
+
+      if (focusToggle) {
+        mobileDropdownToggle.focus({ preventScroll: true });
+      }
+    };
+
+    const openMobileDropdown = () => {
+      if (!mobileDropdown || !mobileDropdownToggle || !mobileDropdownMenu) return;
+      if (isMobileDropdownOpen) return;
+
+      isMobileDropdownOpen = true;
+      mobileDropdown.classList.add("is-expanded");
+      mobileDropdownToggle.setAttribute("aria-expanded", "true");
+      mobileDropdownMenu.setAttribute("aria-hidden", "false");
+    };
+
     const closeMobileMenu = ({ focusToggle = true } = {}) => {
       if (!navToggle || !navLinks || !navBackdrop) return;
       if (!isMobileMenuOpen()) return;
 
+      closeMobileDropdown({ focusToggle: false, immediate: true });
       navLinks.classList.remove("is-mobile-open");
       navToggle.classList.remove("is-active");
       navToggle.setAttribute("aria-expanded", "false");
@@ -585,6 +647,7 @@
       if (!navLinks) return;
       if (!event.matches) {
         closeMobileMenu({ focusToggle: false });
+        closeMobileDropdown({ focusToggle: false, immediate: true });
         if (navBackdrop) {
           navBackdrop.classList.remove("is-active");
           navBackdrop.setAttribute("hidden", "");
@@ -627,6 +690,41 @@
     if (navCloseButton) {
       navCloseButton.addEventListener("click", () => {
         closeMobileMenu();
+      });
+    }
+
+    if (mobileDropdown && mobileDropdownToggle && mobileDropdownMenu) {
+      mobileDropdownToggle.setAttribute("aria-expanded", "false");
+      mobileDropdownMenu.setAttribute("aria-hidden", "true");
+
+      mobileDropdownToggle.addEventListener("click", (event) => {
+        if (!mobileMediaQuery.matches) return;
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (isMobileDropdownOpen) {
+          closeMobileDropdown({ focusToggle: false });
+        } else {
+          openMobileDropdown();
+        }
+      });
+
+      mobileDropdownMenu.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLElement && event.target.matches("a")) {
+          closeMobileDropdown({ focusToggle: false });
+        }
+      });
+
+      mobileDropdownMenu.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !isMobileDropdownOpen) return;
+        event.stopPropagation();
+        closeMobileDropdown();
+      });
+
+      mobileDropdownToggle.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !isMobileDropdownOpen) return;
+        event.preventDefault();
+        closeMobileDropdown();
       });
     }
 
