@@ -611,18 +611,17 @@ img {
   }
 }
 
-/* Move bull slightly left on desktop screens only */
-@media (min-width: 1025px) {
-  .hero-bull {
-    right: -150px !important;
-  }
-}
-
 .hero-bull img {
   object-position: left center;
 }
 
-
+/* Adjust bull position slightly on desktop only */
+@media (min-width: 1025px) {
+  .hero-bull {
+    right: -100px !important; /* قلل الرقم للتحريك أكثر لليسار */
+    position: absolute !important;
+  }
+}
 
 .btn {
   display: inline-flex;
