@@ -1960,89 +1960,91 @@ html, body {
   display: none !important;
 }
 
-/* ========= FORCE MOBILE FIX (FINAL BALANCE) ========= */
+/* ========= MOBILE FIX — FINAL, CLEAN & BALANCED ========= */
 @media (max-width: 767px) {
 
   .hero-section {
     padding-top: 0 !important;
     padding-bottom: 10px !important;
-    min-height: 90vh !important;
+    min-height: 82vh !important; /* Adjusted for better balance */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
     overflow: hidden !important;
     text-align: center !important;
+    position: relative !important;
   }
 
-  /* Move title a bit down */
+  /* Move content slightly down */
   .hero-section .hero-content {
-    margin-top: -80px !important;
+    margin-top: -40px !important; /* Adjust this ONLY to move content up/down */
     position: relative !important;
     z-index: 5 !important;
   }
 
-  /* Slightly smaller title, clean spacing */
+  /* Main titles */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
-    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    font-size: clamp(1.6rem, 6vw, 2.3rem) !important;
     line-height: 1.2 !important;
     font-weight: 700 !important;
     margin-bottom: 8px !important;
   }
 
-  /* Keep “Trading” word strong */
+  /* Highlight word (e.g., Trading) */
   .hero-section .hero-content span {
-    font-size: clamp(2.3rem, 8vw, 2.8rem) !important;
+    font-size: clamp(2.2rem, 8vw, 2.9rem) !important;
     font-weight: 900 !important;
     color: #ff9a00 !important;
   }
 
-  /* Subtitle text spacing */
+  /* Subtitle */
   .hero-section .hero-content p {
     font-size: 0.95rem !important;
     opacity: 0.9 !important;
-    margin: 8px auto 10px auto !important;
+    margin: 10px auto !important;
     max-width: 90% !important;
   }
 
-  /* Bear slightly higher */
+  /* Bear */
   .hero-bear {
     position: absolute !important;
-    bottom: 95px !important;
+    bottom: 110px !important;
     left: -18px !important;
     width: 68vw !important;
     opacity: 0.95 !important;
     z-index: 2 !important;
   }
 
-  /* Bull slightly higher */
+  /* Bull */
   .hero-bull {
     position: absolute !important;
-    bottom: 95px !important;
+    bottom: 110px !important;
     right: -18px !important;
     width: 68vw !important;
     opacity: 0.95 !important;
     z-index: 2 !important;
   }
 
-  /* Buttons moved higher, tighter spacing */
+  /* Buttons */
   .hero-section .hero-content .btn-container {
     display: flex !important;
     justify-content: space-between !important;
     width: 85% !important;
-    margin: 230px auto 0 auto !important;
+    margin: 180px auto 0 auto !important; /* Adjust this UP or DOWN */
     gap: 10px !important;
     z-index: 5 !important;
   }
 
   .hero-section .hero-content .btn {
     flex: 1 !important;
-    font-size: 0.95rem !important;
-    padding: 10px 0 !important;
+    font-size: 1rem !important;
+    padding: 12px 0 !important;
+    font-weight: 600 !important;
   }
 
-  /* Hide AR */
+  /* Hide Arabic toggle */
   #lang-toggle {
     display: none !important;
   }
