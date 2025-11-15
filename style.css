@@ -389,15 +389,17 @@ img {
 .hero-section {
   background: linear-gradient(180deg, #0e0e0e 0%, #111111 100%);
   color: #ffffff;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: clamp(1.2rem, 2.3vw, 1.75rem);
   padding: clamp(2.2rem, 6vw, 3.5rem) clamp(1.35rem, 5.5vw, 3.5rem);
   position: relative;
   text-align: center;
   overflow: hidden;
   isolation: isolate;
-  min-height: clamp(30vh, 44vh, 360px);
+  min-height: 70vh;
 }
 
 .hero-section::before {
@@ -438,8 +440,10 @@ img {
 }
 
 .hero-section .hero-content {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: clamp(0.9rem, 2vw, 1.1rem);
   width: min(100%, 640px);
   margin: 0 auto;
@@ -1398,14 +1402,13 @@ body.nav-menu-open {
 @media (min-width: 1200px) {
   .hero-section {
     padding-block: clamp(2.75rem, 7vw, 4.25rem);
-    min-height: clamp(48vh, 62vh, 680px);
+    min-height: 75vh;
   }
 
   .hero-section .hero-content {
     gap: clamp(1.35rem, 2.4vw, 1.75rem);
-    align-content: center;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
   }
 }
 
