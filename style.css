@@ -1960,42 +1960,44 @@ html, body {
   display: none !important;
 }
 
-/* ======= MOBILE LAYOUT OPTIMIZATION ======= */
+/* ========= MOBILE VERSION ONLY ========= */
 @media (max-width: 767px) {
 
-  /* 🧱 Adjust hero section height and remove extra top space */
+  /* 🧱 Hero section container adjustments */
   .hero-section {
-    padding-top: 40px;     /* reduced top padding */
-    padding-bottom: 50px;  /* keep bottom balanced */
-    min-height: 90vh;
+    padding-top: 40px;      /* reduce top blank space */
+    padding-bottom: 50px;   /* keep bottom balance */
+    min-height: 90vh;       /* maintain height */
     display: flex;
     align-items: flex-start; /* move content upward */
     justify-content: center;
     overflow: hidden;
   }
 
-  /* 🧭 Move hero content upward slightly */
+  /* 🎯 Move title and content slightly up */
   .hero-section .hero-content {
-    margin-top: -40px;     /* move title up */
+    margin-top: -40px;       /* pushes text area upward */
   }
 
-  /* 🐻 Bear */
+  /* 🐻 Bear adjustments */
   .hero-bear {
-    left: -60px;
+    left: -60px;             /* move slightly left */
     bottom: 0;
-    width: 80vw;
+    width: 80vw;             /* make it bigger */
     height: auto;
+    opacity: 0.95;
   }
 
-  /* 🐂 Bull */
+  /* 🐂 Bull adjustments */
   .hero-bull {
-    right: -60px;
+    right: -60px;            /* move slightly right */
     bottom: 0;
-    width: 80vw;
+    width: 80vw;             /* make it bigger */
     height: auto;
+    opacity: 0.95;
   }
 
-  /* 🏷️ Title (bigger + closer to top) */
+  /* 🏷️ Title styling (bigger and balanced) */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
     font-size: clamp(2.4rem, 9vw, 3rem);
@@ -2004,7 +2006,7 @@ html, body {
     margin-bottom: 8px;
   }
 
-  /* Subtitle */
+  /* 🧾 Subtitle styling */
   .hero-section .hero-content p {
     font-size: 1.05rem;
     max-width: 90%;
@@ -2012,8 +2014,15 @@ html, body {
     text-align: center;
   }
 
-  /* Buttons */
+  /* 🟠 Buttons */
   .hero-section .hero-content .btn {
     margin-top: 12px;
   }
+
+  /* 🚫 Hide AR/EN language button */
+  #lang-toggle {
+    display: none !important;
+  }
+}
+
 }
