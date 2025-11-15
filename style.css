@@ -1960,80 +1960,88 @@ html, body {
   display: none !important;
 }
 
-/* ========= FORCE MOBILE FIX ========= */
+/* ========= FINAL CLEAN MOBILE HERO ========= */
 @media (max-width: 767px) {
 
+  /* 🧱 Hero Section */
   .hero-section {
     padding-top: 0 !important;
-    padding-bottom: 20px !important;
-    min-height: 88vh !important;
+    padding-bottom: 0 !important;
+    min-height: 92vh !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
     justify-content: flex-start !important;
+    align-items: center !important;
     overflow: hidden !important;
     text-align: center !important;
   }
 
+  /* 🎯 Hero Content (Title Area) */
   .hero-section .hero-content {
-    margin-top: -100px !important;
+    margin-top: -40px !important;  /* move title up */
     position: relative !important;
     z-index: 5 !important;
   }
 
-  .hero-section .hero-content h1,
-  .hero-section .hero-content h2 {
-    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
-    line-height: 1.15 !important;
-    font-weight: 700 !important;
+  /* 🏷️ Title */
+  .hero-section .hero-content h1 {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.4rem !important;
   }
 
+  /* 🔶 "Trading" word stays big */
   .hero-section .hero-content span {
-    font-size: clamp(2.6rem, 9vw, 3rem) !important;
-    font-weight: 900 !important;
+    font-size: clamp(2.2rem, 8vw, 2.8rem) !important;
+    font-weight: 800 !important;
     color: #ff9a00 !important;
   }
 
+  /* 🧾 Subtitle */
   .hero-section .hero-content p {
     font-size: 1rem !important;
     opacity: 0.9 !important;
-    margin: 10px auto !important;
     max-width: 90% !important;
+    margin: 10px auto 20px auto !important;
   }
 
-  .hero-bear {
-    position: absolute !important;
-    bottom: 150px !important;
-    left: -25px !important;
-    width: 70vw !important;
-    opacity: 0.95 !important;
-    z-index: 2 !important;
-  }
-
-  .hero-bull {
-    position: absolute !important;
-    bottom: 150px !important;
-    right: -25px !important;
-    width: 70vw !important;
-    opacity: 0.95 !important;
-    z-index: 2 !important;
-  }
-
+  /* 🟠 Buttons — now placed mid between title and animals */
   .hero-section .hero-content .btn-container {
     display: flex !important;
-    justify-content: space-between !important;
-    width: 90% !important;
-    margin: 300px auto 0 auto !important;
-    gap: 10px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-top: 5px !important; /* tighten spacing */
     z-index: 5 !important;
   }
 
   .hero-section .hero-content .btn {
-    flex: 1 !important;
-    font-size: 1rem !important;
-    padding: 12px 0 !important;
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+    transform: scale(0.95) !important;
   }
 
+  /* 🐻 Bear */
+  .hero-bear {
+    position: absolute !important;
+    bottom: 60px !important;
+    left: -20px !important;
+    width: 72vw !important;
+    opacity: 0.95 !important;
+    z-index: 2 !important;
+  }
+
+  /* 🐂 Bull */
+  .hero-bull {
+    position: absolute !important;
+    bottom: 60px !important;
+    right: -20px !important;
+    width: 72vw !important;
+    opacity: 0.95 !important;
+    z-index: 2 !important;
+  }
+
+  /* 🚫 Hide AR/EN */
   #lang-toggle {
     display: none !important;
   }
