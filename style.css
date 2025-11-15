@@ -2006,8 +2006,8 @@ html, body {
 
   .hero-bear {
     position: absolute !important;
-    bottom: 110px !important;
-    left: -18px !important;
+    bottom: 135px !important;
+    left: -25px !important;
     width: 68vw !important;
     opacity: 0.95 !important;
     z-index: 2 !important;
@@ -2015,8 +2015,8 @@ html, body {
 
   .hero-bull {
     position: absolute !important;
-    bottom: 110px !important;
-    right: -18px !important;
+    bottom: 135px !important;
+    right: -25px !important;
     width: 68vw !important;
     opacity: 0.95 !important;
     z-index: 2 !important;
