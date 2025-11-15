@@ -1960,63 +1960,65 @@ html, body {
   display: none !important;
 }
 
-/* ========= MOBILE VERSION ONLY (clean & final) ========= */
+/* ========= MOBILE VERSION ONLY (FORCE OVERRIDE) ========= */
 @media (max-width: 767px) {
 
   /* 🧱 Hero Section Container */
   .hero-section {
-    padding-top: 0;          /* remove extra gap above */
-    padding-bottom: 30px;    /* keep nice spacing below */
-    min-height: 85vh;
-    display: flex;
-    align-items: flex-start;  /* move content higher */
-    justify-content: center;
-    overflow: hidden;
+    padding-top: 0 !important;
+    padding-bottom: 30px !important;
+    min-height: 85vh !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    overflow: hidden !important;
   }
 
   /* 🎯 Title & Content — move up */
   .hero-section .hero-content {
-    margin-top: -120px;      /* lift title higher */
+    margin-top: -120px !important;
+    position: relative !important;
+    z-index: 5 !important;
   }
 
   /* 🏷️ Title Styling */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
-    font-size: clamp(2.6rem, 9vw, 3.2rem);
-    line-height: 1.1;
-    text-align: center;
-    margin-bottom: 12px;
+    font-size: clamp(2.6rem, 9vw, 3.2rem) !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
   }
 
   /* 🧾 Subtitle Styling */
   .hero-section .hero-content p {
-    font-size: 1.05rem;
-    max-width: 88%;
-    margin: 0 auto 12px auto;
-    text-align: center;
+    font-size: 1.05rem !important;
+    max-width: 88% !important;
+    margin: 0 auto 12px auto !important;
+    text-align: center !important;
   }
 
   /* 🟠 Buttons */
   .hero-section .hero-content .btn {
-    margin-top: 15px;
+    margin-top: 15px !important;
   }
 
-  /* 🐻 Bear — a bit lower and centered better */
+  /* 🐻 Bear */
   .hero-bear {
-    left: -50px;
-    bottom: -20px;
-    width: 78vw;
-    height: auto;
-    opacity: 0.95;
+    left: -50px !important;
+    bottom: -30px !important;
+    width: 78vw !important;
+    height: auto !important;
+    opacity: 0.95 !important;
   }
 
-  /* 🐂 Bull — a bit lower and balanced */
+  /* 🐂 Bull */
   .hero-bull {
-    right: -50px;
-    bottom: -20px;
-    width: 78vw;
-    height: auto;
-    opacity: 0.95;
+    right: -50px !important;
+    bottom: -30px !important;
+    width: 78vw !important;
+    height: auto !important;
+    opacity: 0.95 !important;
   }
 
   /* 🚫 Hide AR/EN Language Button */
