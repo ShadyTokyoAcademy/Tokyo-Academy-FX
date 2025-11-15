@@ -1944,3 +1944,13 @@ body.nav-menu-open {
   transform: scale(1.03);
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 20px rgba(0, 200, 0, 0.4);
 }
+
+/* Fix unwanted horizontal scroll on desktop */
+html, body {
+  overflow-x: clip; /* hides any horizontal overflow but safer than hidden */
+}
+
+/* Ensure hero section doesn’t overflow due to bear/bull */
+.hero-section {
+  overflow: hidden;
+}
