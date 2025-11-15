@@ -1960,88 +1960,89 @@ html, body {
   display: none !important;
 }
 
-/* ========= FINAL CLEAN MOBILE HERO ========= */
+/* ========= FORCE MOBILE FIX (FINAL BALANCE) ========= */
 @media (max-width: 767px) {
 
-  /* 🧱 Hero Section */
   .hero-section {
     padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    min-height: 92vh !important;
+    padding-bottom: 10px !important;
+    min-height: 90vh !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
     align-items: center !important;
+    justify-content: flex-start !important;
     overflow: hidden !important;
     text-align: center !important;
   }
 
-  /* 🎯 Hero Content (Title Area) */
+  /* Move title a bit down */
   .hero-section .hero-content {
-    margin-top: -40px !important;  /* move title up */
+    margin-top: -60px !important;
     position: relative !important;
     z-index: 5 !important;
   }
 
-  /* 🏷️ Title */
-  .hero-section .hero-content h1 {
-    font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+  /* Slightly smaller title, clean spacing */
+  .hero-section .hero-content h1,
+  .hero-section .hero-content h2 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
     line-height: 1.2 !important;
-    margin-bottom: 0.4rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
   }
 
-  /* 🔶 "Trading" word stays big */
+  /* Keep “Trading” word strong */
   .hero-section .hero-content span {
-    font-size: clamp(2.2rem, 8vw, 2.8rem) !important;
-    font-weight: 800 !important;
+    font-size: clamp(2.3rem, 8vw, 2.8rem) !important;
+    font-weight: 900 !important;
     color: #ff9a00 !important;
   }
 
-  /* 🧾 Subtitle */
+  /* Subtitle text spacing */
   .hero-section .hero-content p {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     opacity: 0.9 !important;
+    margin: 8px auto 10px auto !important;
     max-width: 90% !important;
-    margin: 10px auto 20px auto !important;
   }
 
-  /* 🟠 Buttons — now placed mid between title and animals */
+  /* Bear slightly higher */
+  .hero-bear {
+    position: absolute !important;
+    bottom: 95px !important;
+    left: -18px !important;
+    width: 68vw !important;
+    opacity: 0.95 !important;
+    z-index: 2 !important;
+  }
+
+  /* Bull slightly higher */
+  .hero-bull {
+    position: absolute !important;
+    bottom: 95px !important;
+    right: -18px !important;
+    width: 68vw !important;
+    opacity: 0.95 !important;
+    z-index: 2 !important;
+  }
+
+  /* Buttons moved higher, tighter spacing */
   .hero-section .hero-content .btn-container {
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 14px !important;
-    margin-top: 5px !important; /* tighten spacing */
+    justify-content: space-between !important;
+    width: 85% !important;
+    margin: 230px auto 0 auto !important;
+    gap: 10px !important;
     z-index: 5 !important;
   }
 
   .hero-section .hero-content .btn {
+    flex: 1 !important;
     font-size: 0.95rem !important;
-    padding: 10px 18px !important;
-    transform: scale(0.95) !important;
+    padding: 10px 0 !important;
   }
 
-  /* 🐻 Bear */
-  .hero-bear {
-    position: absolute !important;
-    bottom: 60px !important;
-    left: -20px !important;
-    width: 72vw !important;
-    opacity: 0.95 !important;
-    z-index: 2 !important;
-  }
-
-  /* 🐂 Bull */
-  .hero-bull {
-    position: absolute !important;
-    bottom: 60px !important;
-    right: -20px !important;
-    width: 72vw !important;
-    opacity: 0.95 !important;
-    z-index: 2 !important;
-  }
-
-  /* 🚫 Hide AR/EN */
+  /* Hide AR */
   #lang-toggle {
     display: none !important;
   }
