@@ -1960,13 +1960,13 @@ html, body {
   display: none !important;
 }
 
-/* ========= MOBILE FIX — FINAL, CLEAN & BALANCED ========= */
+/* ========= MOBILE FIX — FINAL WORKING VERSION ========= */
 @media (max-width: 767px) {
 
   .hero-section {
     padding-top: 0 !important;
     padding-bottom: 10px !important;
-    min-height: 82vh !important; /* Adjusted for better balance */
+    min-height: 82vh !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -1976,14 +1976,13 @@ html, body {
     position: relative !important;
   }
 
-  /* Move content slightly down */
+  /* MOVE CONTENT UP/DOWN HERE */
   .hero-section .hero-content {
-    margin-top: 40px !important; /* Adjust this ONLY to move content up/down */
     position: relative !important;
+    top: 40px !important;  /* ← move DOWN (change this number only) */
     z-index: 5 !important;
   }
 
-  /* Main titles */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
     font-size: clamp(1.6rem, 6vw, 2.3rem) !important;
@@ -1992,14 +1991,12 @@ html, body {
     margin-bottom: 8px !important;
   }
 
-  /* Highlight word (e.g., Trading) */
   .hero-section .hero-content span {
     font-size: clamp(2.2rem, 8vw, 2.9rem) !important;
     font-weight: 900 !important;
     color: #ff9a00 !important;
   }
 
-  /* Subtitle */
   .hero-section .hero-content p {
     font-size: 0.95rem !important;
     opacity: 0.9 !important;
@@ -2007,7 +2004,6 @@ html, body {
     max-width: 90% !important;
   }
 
-  /* Bear */
   .hero-bear {
     position: absolute !important;
     bottom: 110px !important;
@@ -2017,7 +2013,6 @@ html, body {
     z-index: 2 !important;
   }
 
-  /* Bull */
   .hero-bull {
     position: absolute !important;
     bottom: 110px !important;
@@ -2027,12 +2022,11 @@ html, body {
     z-index: 2 !important;
   }
 
-  /* Buttons */
   .hero-section .hero-content .btn-container {
     display: flex !important;
     justify-content: space-between !important;
     width: 85% !important;
-    margin: 180px auto 0 auto !important; /* Adjust this UP or DOWN */
+    margin: 180px auto 0 auto !important;
     gap: 10px !important;
     z-index: 5 !important;
   }
@@ -2044,7 +2038,6 @@ html, body {
     font-weight: 600 !important;
   }
 
-  /* Hide Arabic toggle */
   #lang-toggle {
     display: none !important;
   }
