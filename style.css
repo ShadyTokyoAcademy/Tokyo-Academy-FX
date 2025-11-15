@@ -125,6 +125,10 @@ img {
   color: #fff;
 }
 
+.nav-logo {
+  gap: clamp(0.4rem, 1.1vw, 0.65rem);
+}
+
 .logo span {
   display: inline-block;
   background: linear-gradient(90deg, #ffb300, #ff6a00);
@@ -137,7 +141,6 @@ img {
 .nav-logo img {
   height: 24px;
   width: auto;
-  margin-right: 8px;
   vertical-align: middle;
 }
 
@@ -1433,6 +1436,25 @@ body.nav-menu-open {
   }
 }
 
+@media (min-width: 1025px) {
+  .nav-inner {
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.75rem, 2vw, 1.75rem);
+  }
+
+  .nav-links {
+    flex-wrap: nowrap;
+    gap: clamp(1rem, 1.6vw, 1.8rem);
+  }
+
+  .nav-dropdown,
+  #lang-toggle {
+    margin-left: 0;
+    align-self: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .nav-inner {
     justify-content: flex-start;
@@ -1443,9 +1465,12 @@ body.nav-menu-open {
     font-size: clamp(1.1rem, 3.4vw, 1.35rem);
   }
 
+  .nav-logo {
+    gap: clamp(0.35rem, 1.3vw, 0.55rem);
+  }
+
   .nav-logo img {
     height: clamp(18px, 3.4vw, 22px);
-    margin-right: clamp(0.4rem, 1vw, 0.5rem);
   }
 
   .nav-primary {
@@ -1706,9 +1731,12 @@ body.nav-menu-open {
     font-size: clamp(1.02rem, 5.2vw, 1.2rem);
   }
 
+  .nav-logo {
+    gap: clamp(0.3rem, 2vw, 0.5rem);
+  }
+
   .nav-logo img {
     height: clamp(16px, 6vw, 20px);
-    margin-right: clamp(0.35rem, 2vw, 0.5rem);
   }
 
   .nav-dropdown {
