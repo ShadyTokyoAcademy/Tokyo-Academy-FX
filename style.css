@@ -1960,67 +1960,86 @@ html, body {
   display: none !important;
 }
 
-/* ========= FINAL POLISHED MOBILE VERSION ========= */
+/* ========= OPTIMIZED MOBILE HERO LAYOUT ========= */
 @media (max-width: 767px) {
 
   /* 🧱 Hero Section */
   .hero-section {
     padding-top: 0 !important;
     padding-bottom: 20px !important;
-    min-height: 82vh !important;
+    min-height: 90vh !important;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
     flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow: hidden !important;
+    text-align: center !important;
   }
 
-  /* 🎯 Content block – centered and higher */
+  /* 🎯 Hero Content – move up and reduce size */
   .hero-section .hero-content {
-    margin-top: -100px !important;  /* lift slightly */
-    text-align: center !important;
+    margin-top: -60px !important;
     position: relative !important;
     z-index: 5 !important;
   }
 
-  /* 🏷️ Title */
-  .hero-section .hero-content h1,
-  .hero-section .hero-content h2 {
-    font-size: clamp(2.5rem, 8.5vw, 3rem) !important;
-    line-height: 1.15 !important;
-    margin-bottom: 8px !important;
+  /* 🏷️ Title Styling */
+  .hero-section .hero-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem) !important; /* smaller */
+    font-weight: 600 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* 🔶 Highlighted "Trading" word */
+  .hero-section .hero-content h2 span {
+    font-size: clamp(2.4rem, 8vw, 2.9rem) !important;
+    font-weight: 800 !important;
   }
 
   /* 🧾 Subtitle */
   .hero-section .hero-content p {
     font-size: 1rem !important;
-    max-width: 88% !important;
-    margin: 0 auto 12px auto !important;
+    max-width: 90% !important;
+    margin: 0 auto 10px auto !important;
     opacity: 0.9 !important;
   }
 
-  /* 🟠 Buttons – slightly smaller and tighter */
-  .hero-section .hero-content .btn {
-    margin-top: 10px !important;
-    transform: scale(0.9);
-  }
-
-  /* 🐻 Bear – shift down slightly, more visible */
+  /* 🐻 Bear */
   .hero-bear {
-    left: -45px !important;
-    bottom: -40px !important;
+    position: absolute !important;
+    bottom: 120px !important;   /* raise bear higher */
+    left: -30px !important;
     width: 75vw !important;
-    height: auto !important;
     opacity: 0.95 !important;
+    z-index: 1 !important;
   }
 
-  /* 🐂 Bull – balanced with bear */
+  /* 🐂 Bull */
   .hero-bull {
-    right: -45px !important;
-    bottom: -40px !important;
+    position: absolute !important;
+    bottom: 120px !important;   /* same height as bear */
+    right: -30px !important;
     width: 75vw !important;
-    height: auto !important;
     opacity: 0.95 !important;
+    z-index: 1 !important;
+  }
+
+  /* 🟠 Buttons container — below bear & bull */
+  .hero-section .hero-content .btn-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 90% !important;
+    margin: 320px auto 0 auto !important; /* move down below bear/bull */
+    z-index: 5 !important;
+    gap: 10px !important;
+  }
+
+  .hero-section .hero-content .btn {
+    flex: 1 !important;
+    font-size: 0.9rem !important;
+    padding: 10px 0 !important;
+    transform: scale(0.95) !important;
   }
 
   /* 🚫 Hide AR/EN */
