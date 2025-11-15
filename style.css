@@ -1964,3 +1964,32 @@ a[lang="ar"],
 #ar-toggle {
   display: none !important;
 }
+
+/* ========== MOBILE VERSION ONLY ========== */
+@media (max-width: 767px) {
+  /* 🐻 Bear position for mobile */
+  .hero-bear {
+    left: -40px;  /* move more left or right depending on what you want */
+    width: 65vw;  /* adjust size as percentage of screen width */
+    height: auto;
+  }
+
+  /* 🐂 Bull position for mobile */
+  .hero-bull {
+    right: -40px; /* move more right or left depending on what you want */
+    width: 65vw;
+    height: auto;
+  }
+
+  /* 🏷️ Title (hero text) size for mobile */
+  .hero-section .hero-content h1,
+  .hero-section .hero-content h2 {
+    font-size: clamp(1.6rem, 7vw, 2.4rem); /* bigger title for mobile */
+    line-height: 1.2;
+  }
+
+  /* Optional: Adjust hero button spacing */
+  .hero-section .hero-content .btn {
+    margin-top: 10px;
+  }
+}
