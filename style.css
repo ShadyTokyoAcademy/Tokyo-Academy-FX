@@ -1955,13 +1955,8 @@ html, body {
   overflow: hidden;
 }
 
-/* ====== TEMPORARILY HIDE AR & LANGUAGE BUTTONS ====== */
-.navbar .lang-switch,
-.navbar .ar-button,
-button[lang="ar"],
-a[lang="ar"],
-#language-toggle,
-#ar-toggle {
+/* Hide the AR/EN language toggle button */
+#lang-toggle {
   display: none !important;
 }
 
