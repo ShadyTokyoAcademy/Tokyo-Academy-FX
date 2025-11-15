@@ -1905,7 +1905,7 @@ body.nav-menu-open {
 }
 
 .trustpilot-badge {
-  width: 160px;
+  width: 220px;
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
