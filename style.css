@@ -583,6 +583,15 @@ img {
   isolation: isolate;
 }
 
+/* Slightly increase bear and bull size on desktop only */
+@media (min-width: 1025px) {
+  .hero-bear,
+  .hero-bull {
+    width: clamp(280px, 38vw, 480px) !important;
+    height: clamp(320px, 46vw, 560px) !important;
+  }
+}
+
 .hero-bear {
   left: clamp(-300px, -24vw, -160px);
 }
