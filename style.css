@@ -139,9 +139,10 @@ img {
 }
 
 .nav-logo img {
-  height: 24px;
+  height: clamp(40px, 5vw, 60px);
   width: auto;
   vertical-align: middle;
+  object-fit: contain;
 }
 
 .nav-links { 
