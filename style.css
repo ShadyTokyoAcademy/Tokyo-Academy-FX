@@ -1978,7 +1978,7 @@ html, body {
 
   /* Move content slightly down */
   .hero-section .hero-content {
-    margin-top: -40px !important; /* Adjust this ONLY to move content up/down */
+    margin-top: 20px !important; /* Adjust this ONLY to move content up/down */
     position: relative !important;
     z-index: 5 !important;
   }
