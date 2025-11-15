@@ -139,7 +139,7 @@ img {
 }
 
 .nav-logo img {
-  height: 24px;
+  height: 40px;
   width: auto;
   vertical-align: middle;
 }
@@ -276,7 +276,7 @@ img {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: clamp(0.75rem, 2vw, 1.5rem);
+  margin-left: 40px;
   flex-shrink: 0;
 }
 
@@ -382,6 +382,7 @@ img {
   font-weight: 600;
   transition: 0.3s;
   flex-shrink: 0;
+  margin-left: 40px;
 }
 
 #lang-toggle:hover {
@@ -1469,10 +1470,6 @@ body.nav-menu-open {
     gap: clamp(0.35rem, 1.3vw, 0.55rem);
   }
 
-  .nav-logo img {
-    height: clamp(18px, 3.4vw, 22px);
-  }
-
   .nav-primary {
     flex: 0 0 auto;
     min-width: 0;
@@ -1484,7 +1481,6 @@ body.nav-menu-open {
 
   #lang-toggle {
     order: 2;
-    margin-left: clamp(0.4rem, 1.5vw, 0.75rem);
   }
 
   .nav-toggle {
@@ -1698,6 +1694,17 @@ body.nav-menu-open {
   }
 }
 
+@media (max-width: 991px) {
+  .nav-logo img {
+    height: 30px;
+  }
+
+  .nav-dropdown,
+  #lang-toggle {
+    margin-left: 0;
+  }
+}
+
 @media (min-width: 1200px) {
   .hero-bear,
   .hero-bull {
@@ -1733,18 +1740,6 @@ body.nav-menu-open {
 
   .nav-logo {
     gap: clamp(0.3rem, 2vw, 0.5rem);
-  }
-
-  .nav-logo img {
-    height: clamp(16px, 6vw, 20px);
-  }
-
-  .nav-dropdown {
-    margin-left: auto;
-  }
-
-  #lang-toggle {
-    margin-left: clamp(0.35rem, 2.5vw, 0.6rem);
   }
 
   .nav-dropdown-toggle,
