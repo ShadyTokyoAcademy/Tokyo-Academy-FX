@@ -616,7 +616,7 @@ img {
 /* Move bear further left on desktop screens only */
 @media (min-width: 1025px) {
   .hero-bear {
-    left: -260px !important;
+    left: -240px !important;
   }
 }
 
