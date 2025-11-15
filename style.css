@@ -139,7 +139,7 @@ img {
 }
 
 .nav-logo img {
-  height: clamp(40px, 5vw, 60px);
+  height: clamp(30px, 4vw, 45px);
   width: auto;
   vertical-align: middle;
   object-fit: contain;
