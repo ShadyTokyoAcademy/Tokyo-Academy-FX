@@ -1898,3 +1898,21 @@ body.nav-menu-open {
     font-size: 1.35rem;
   }
 }
+
+.trustpilot-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.trustpilot-badge {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trustpilot-badge:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 20px rgba(0, 200, 0, 0.4);
+}
+
