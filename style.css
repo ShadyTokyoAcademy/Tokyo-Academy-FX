@@ -1960,31 +1960,53 @@ html, body {
   display: none !important;
 }
 
-/* ========== MOBILE VERSION ONLY ========== */
+/* ======= MOBILE LAYOUT OPTIMIZATION ======= */
 @media (max-width: 767px) {
-  /* 🐻 Bear position for mobile */
+
+  /* 🧱 Adjust hero section height and spacing */
+  .hero-section {
+    padding: 80px 0 60px 0; /* top and bottom space */
+    min-height: 90vh; /* taller hero area */
+    overflow: hidden;
+  }
+
+  /* 🐻 Bear position and size */
   .hero-bear {
-    left: -40px;  /* move more left or right depending on what you want */
-    width: 65vw;  /* adjust size as percentage of screen width */
+    left: -60px;          /* move more left */
+    bottom: 0;
+    width: 80vw;          /* make larger */
     height: auto;
+    opacity: 0.95;        /* smooth look */
   }
 
-  /* 🐂 Bull position for mobile */
+  /* 🐂 Bull position and size */
   .hero-bull {
-    right: -40px; /* move more right or left depending on what you want */
-    width: 65vw;
+    right: -60px;         /* move more right */
+    bottom: 0;
+    width: 80vw;          /* make larger */
     height: auto;
+    opacity: 0.95;
   }
 
-  /* 🏷️ Title (hero text) size for mobile */
+  /* 🏷️ Title (bigger and centered) */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
-    font-size: clamp(1.6rem, 7vw, 2.4rem); /* bigger title for mobile */
-    line-height: 1.2;
+    font-size: clamp(2.4rem, 9vw, 3rem); /* Bigger title */
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
-  /* Optional: Adjust hero button spacing */
+  /* 🧾 Subtitle (make readable) */
+  .hero-section .hero-content p {
+    font-size: 1.1rem;
+    max-width: 90%;
+    margin: 0 auto 20px auto;
+    text-align: center;
+  }
+
+  /* 🎯 Buttons */
   .hero-section .hero-content .btn {
-    margin-top: 10px;
+    margin-top: 15px;
   }
 }
