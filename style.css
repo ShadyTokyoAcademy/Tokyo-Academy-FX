@@ -1965,45 +1965,45 @@ html, body {
 
   /* 🧱 Hero section container adjustments */
   .hero-section {
-    padding-top: 40px;      /* reduce top blank space */
-    padding-bottom: 50px;   /* keep bottom balance */
-    min-height: 90vh;       /* maintain height */
+    padding-top: 20px;      /* reduce more top blank space */
+    padding-bottom: 40px;   /* slight bottom padding */
+    min-height: 88vh;
     display: flex;
-    align-items: flex-start; /* move content upward */
+    align-items: flex-start;
     justify-content: center;
     overflow: hidden;
   }
 
-  /* 🎯 Move title and content slightly up */
+  /* 🎯 Move title and content higher */
   .hero-section .hero-content {
-    margin-top: -40px;       /* pushes text area upward */
+    margin-top: -80px;       /* increased upward shift */
   }
 
   /* 🐻 Bear adjustments */
   .hero-bear {
-    left: -60px;             /* move slightly left */
-    bottom: 0;
-    width: 80vw;             /* make it bigger */
+    left: -60px;
+    bottom: -10px;
+    width: 78vw;
     height: auto;
     opacity: 0.95;
   }
 
   /* 🐂 Bull adjustments */
   .hero-bull {
-    right: -60px;            /* move slightly right */
-    bottom: 0;
-    width: 80vw;             /* make it bigger */
+    right: -60px;
+    bottom: -10px;
+    width: 78vw;
     height: auto;
     opacity: 0.95;
   }
 
-  /* 🏷️ Title styling (bigger and balanced) */
+  /* 🏷️ Title styling (bigger and higher) */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
-    font-size: clamp(2.4rem, 9vw, 3rem);
+    font-size: clamp(2.5rem, 9.5vw, 3.2rem);
     line-height: 1.1;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   /* 🧾 Subtitle styling */
@@ -2023,6 +2023,4 @@ html, body {
   #lang-toggle {
     display: none !important;
   }
-}
-
 }
