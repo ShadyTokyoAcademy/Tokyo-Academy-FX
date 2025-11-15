@@ -604,6 +604,13 @@ img {
   object-position: right center;
 }
 
+/* Move bear further left on desktop screens only */
+@media (min-width: 1025px) {
+  .hero-bear {
+    left: -300px !important;
+  }
+}
+
 .hero-bull img {
   object-position: left center;
 }
