@@ -584,7 +584,7 @@ img {
 }
 
 .hero-bear {
-  left: clamp(-220px, -18vw, -120px);
+  left: clamp(-300px, -24vw, -160px);
 }
 
 .hero-bull {
