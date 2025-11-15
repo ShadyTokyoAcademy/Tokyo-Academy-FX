@@ -145,6 +145,12 @@ img {
   object-fit: contain;
 }
 
+@media (min-width: 768px) {
+  .nav-logo span {
+    display: none;
+  }
+}
+
 .nav-links { 
   list-style: none;
   display: flex;
