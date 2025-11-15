@@ -1960,66 +1960,66 @@ html, body {
   display: none !important;
 }
 
-/* ========= MOBILE VERSION ONLY ========= */
+/* ========= MOBILE VERSION ONLY (clean & final) ========= */
 @media (max-width: 767px) {
 
-  /* 🧱 Hero section container adjustments */
+  /* 🧱 Hero Section Container */
   .hero-section {
-    padding-top: 20px;      /* reduce more top blank space */
-    padding-bottom: 40px;   /* slight bottom padding */
-    min-height: 88vh;
+    padding-top: 0;          /* remove extra gap above */
+    padding-bottom: 30px;    /* keep nice spacing below */
+    min-height: 85vh;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start;  /* move content higher */
     justify-content: center;
     overflow: hidden;
   }
 
-  /* 🎯 Move title and content higher */
+  /* 🎯 Title & Content — move up */
   .hero-section .hero-content {
-    margin-top: -80px;       /* increased upward shift */
+    margin-top: -120px;      /* lift title higher */
   }
 
-  /* 🐻 Bear adjustments */
-  .hero-bear {
-    left: -60px;
-    bottom: -10px;
-    width: 78vw;
-    height: auto;
-    opacity: 0.95;
-  }
-
-  /* 🐂 Bull adjustments */
-  .hero-bull {
-    right: -60px;
-    bottom: -10px;
-    width: 78vw;
-    height: auto;
-    opacity: 0.95;
-  }
-
-  /* 🏷️ Title styling (bigger and higher) */
+  /* 🏷️ Title Styling */
   .hero-section .hero-content h1,
   .hero-section .hero-content h2 {
-    font-size: clamp(2.5rem, 9.5vw, 3.2rem);
+    font-size: clamp(2.6rem, 9vw, 3.2rem);
     line-height: 1.1;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  /* 🧾 Subtitle styling */
+  /* 🧾 Subtitle Styling */
   .hero-section .hero-content p {
     font-size: 1.05rem;
-    max-width: 90%;
-    margin: 0 auto 15px auto;
+    max-width: 88%;
+    margin: 0 auto 12px auto;
     text-align: center;
   }
 
   /* 🟠 Buttons */
   .hero-section .hero-content .btn {
-    margin-top: 12px;
+    margin-top: 15px;
   }
 
-  /* 🚫 Hide AR/EN language button */
+  /* 🐻 Bear — a bit lower and centered better */
+  .hero-bear {
+    left: -50px;
+    bottom: -20px;
+    width: 78vw;
+    height: auto;
+    opacity: 0.95;
+  }
+
+  /* 🐂 Bull — a bit lower and balanced */
+  .hero-bull {
+    right: -50px;
+    bottom: -20px;
+    width: 78vw;
+    height: auto;
+    opacity: 0.95;
+  }
+
+  /* 🚫 Hide AR/EN Language Button */
   #lang-toggle {
     display: none !important;
   }
