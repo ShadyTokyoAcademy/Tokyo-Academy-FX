@@ -1954,3 +1954,13 @@ html, body {
 .hero-section {
   overflow: hidden;
 }
+
+/* ====== TEMPORARILY HIDE AR & LANGUAGE BUTTONS ====== */
+.navbar .lang-switch,
+.navbar .ar-button,
+button[lang="ar"],
+a[lang="ar"],
+#language-toggle,
+#ar-toggle {
+  display: none !important;
+}
