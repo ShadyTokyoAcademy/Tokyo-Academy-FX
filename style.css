@@ -618,7 +618,7 @@ img {
 /* Adjust bull position slightly on desktop only */
 @media (min-width: 1025px) {
   .hero-bull {
-    right: -90px !important; /* قلل الرقم للتحريك أكثر لليسار */
+    right: -80px !important; /* قلل الرقم للتحريك أكثر لليسار */
     position: absolute !important;
   }
 }
