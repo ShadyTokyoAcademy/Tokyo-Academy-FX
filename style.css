@@ -2057,3 +2057,26 @@ html, body {
     pointer-events: none !important;
   }
 }
+
+/* REDUCE HERO HEIGHT ON MOBILE ONLY */
+@media (max-width: 767px) {
+
+  .hero-section {
+    min-height: 65vh !important;   /* ↓ كان 82vh */
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .hero-section .hero-content {
+    top: 10px !important;          /* ↓ يقلل النزول */
+  }
+
+  .hero-section .hero-content p {
+    margin-bottom: 8px !important;
+  }
+
+  .hero-section .btn-container {
+    margin-top: 40px !important;   /* ↓ بدل 180px */
+  }
+
+}
