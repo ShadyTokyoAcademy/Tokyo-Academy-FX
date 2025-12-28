@@ -2058,25 +2058,26 @@ html, body {
   }
 }
 
-/* REDUCE HERO HEIGHT ON MOBILE ONLY */
+/* REDUCE HERO HEIGHT & SPACING ON MOBILE ONLY */
 @media (max-width: 767px) {
 
   .hero-section {
-    min-height: 65vh !important;   /* ↓ كان 82vh */
+    min-height: 65vh !important;
     padding-top: 10px !important;
     padding-bottom: 20px !important;
   }
 
   .hero-section .hero-content {
-    top: 10px !important;          /* ↓ يقلل النزول */
+    top: 10px !important;
   }
 
   .hero-section .hero-content p {
     margin-bottom: 8px !important;
   }
 
-  .hero-section .btn-container {
-    margin-top: 40px !important;   /* ↓ بدل 180px */
+  /* FIX BUTTON SPACING */
+  .hero-buttons {
+    margin-top: 30px !important;
   }
-
 }
+
