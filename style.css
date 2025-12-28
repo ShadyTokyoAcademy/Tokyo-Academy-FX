@@ -2041,4 +2041,10 @@ html, body {
   #lang-toggle {
     display: none !important;
   }
+   
+@media (min-width: 992px){
+  .hero-bear,
+  .hero-bull{
+    display:none !important;
+  }
 }
