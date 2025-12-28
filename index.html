@@ -470,7 +470,7 @@
       <form class="modal-form" id="tokyoForm">
         <label>
           <span data-en="Full Name" data-ar="الاسم الكامل">Full Name</span>
-          <input type="text" name="fullname" placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-ar="محمد أحمد" required />
+          <input type="text" name="fullName" placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-ar="محمد أحمد" required />
         </label>
         <label>
           <span data-en="Email" data-ar="البريد الإلكتروني">Email</span>
@@ -1165,39 +1165,32 @@
 
     initializeBackToTop();
   </script>
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("tokyoForm");
   if (!form) return;
 
-  form.addEventListener("submit", async function (e) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const data = {
+    const payload = JSON.stringify({
       fullName: form.querySelector('[name="fullName"]').value,
       email: form.querySelector('[name="email"]').value,
       phone: form.querySelector('[name="phone"]').value,
       gender: form.querySelector('[name="gender"]').value,
       experience: form.querySelector('[name="experience"]').value
-    };
+    });
 
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbzvhxTDwtr8cZ4hGczkHzHdrgrL8YJNpcS3MzBR4uYCPI66lgQXL_rM5oaWiZKSKoTeTg/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+    fetch("https://script.google.com/macros/s/AKfycbzvhxTDwtr8cZ4hGczkHzHdrgrL8YJNpcS3MzBR4uYCPI66lgQXL_rM5oaWiZKSKoTeTg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: payload
+    });
 
-      form.reset();
-      alert("Thank you. We will contact you soon.");
-    } catch (error) {
-      alert("Something went wrong. Please try again.");
-    }
+    form.reset();
+    alert("Form submitted successfully");
   });
 });
 </script>
-
 </body>
 </html>
