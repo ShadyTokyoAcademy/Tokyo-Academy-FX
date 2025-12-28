@@ -2045,18 +2045,15 @@ html, body {
   }
 }
 
-/* HIDE BEAR & BULL ON MOBILE ONLY */
+/* FINAL — HIDE BEAR & BULL ON MOBILE ONLY (DESKTOP UNTOUCHED) */
 @media (max-width: 991px) {
   .hero-bear,
-  .hero-bull {
+  .hero-bull,
+  .hero-bear img,
+  .hero-bull img {
     display: none !important;
-  }
-}
-
-/* SHOW BEAR & BULL ON DESKTOP ONLY */
-@media (min-width: 992px) {
-  .hero-bear,
-  .hero-bull {
-    display: block !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
