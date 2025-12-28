@@ -2038,17 +2038,25 @@ html, body {
     font-weight: 600 !important;
   }
 
-  /* MOBILE ONLY */
+/* MOBILE ONLY */
 @media (max-width: 767px) {
   #lang-toggle {
     display: none !important;
   }
 }
 
-/* DESKTOP ONLY */
-@media (min-width: 992px) {
+/* HIDE BEAR & BULL ON MOBILE ONLY */
+@media (max-width: 991px) {
   .hero-bear,
   .hero-bull {
     display: none !important;
+  }
+}
+
+/* SHOW BEAR & BULL ON DESKTOP ONLY */
+@media (min-width: 992px) {
+  .hero-bear,
+  .hero-bull {
+    display: block !important;
   }
 }
