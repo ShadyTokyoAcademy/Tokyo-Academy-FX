@@ -2081,3 +2081,15 @@ html, body {
   }
 }
 
+/* MOVE BURGER MENU TO THE RIGHT — MOBILE ONLY */
+@media (max-width: 767px) {
+
+  .nav-inner {
+    justify-content: space-between !important;
+  }
+
+  .nav-toggle {
+    margin-left: auto !important;
+  }
+
+}
