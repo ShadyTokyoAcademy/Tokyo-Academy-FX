@@ -2038,13 +2038,17 @@ html, body {
     font-weight: 600 !important;
   }
 
+  /* MOBILE ONLY */
+@media (max-width: 767px) {
   #lang-toggle {
     display: none !important;
   }
-   
-@media (min-width: 992px){
+}
+
+/* DESKTOP ONLY */
+@media (min-width: 992px) {
   .hero-bear,
-  .hero-bull{
-    display:none !important;
+  .hero-bull {
+    display: none !important;
   }
 }
