@@ -2062,7 +2062,7 @@ html, body {
 @media (max-width: 767px) {
 
   .hero-section {
-    min-height: 50vh !important;
+    min-height: 35vh !important;
     padding-top: 10px !important;
     padding-bottom: 20px !important;
   }
