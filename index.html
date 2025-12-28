@@ -467,10 +467,10 @@
       <button class="modal-close" aria-label="Close registration form">×</button>
       <h2 id="registration-title" data-en="Join Tokyo Academy FX" data-ar="انضم إلى أكاديمية طوكيو إف إكس">Join Tokyo Academy FX</h2>
       <p class="modal-subtitle" data-en="Complete the form below and our team will contact you soon." data-ar="أكمل النموذج أدناه وسيتواصل معك فريقنا قريبًا.">Complete the form below and our team will contact you soon.</p>
-      <form class="modal-form">
+      <form class="modal-form" id="tokyoForm">
         <label>
           <span data-en="Full Name" data-ar="الاسم الكامل">Full Name</span>
-          <input type="text" name="name" placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-ar="محمد أحمد" required />
+          <input type="text" name="fullname" placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-ar="محمد أحمد" required />
         </label>
         <label>
           <span data-en="Email" data-ar="البريد الإلكتروني">Email</span>
@@ -1165,5 +1165,39 @@
 
     initializeBackToTop();
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("tokyoForm");
+  if (!form) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+      fullName: form.querySelector('[name="fullName"]').value,
+      email: form.querySelector('[name="email"]').value,
+      phone: form.querySelector('[name="phone"]').value,
+      gender: form.querySelector('[name="gender"]').value,
+      experience: form.querySelector('[name="experience"]').value
+    };
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbzvhxTDwtr8cZ4hGczkHzHdrgrL8YJNpcS3MzBR4uYCPI66lgQXL_rM5oaWiZKSKoTeTg/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      form.reset();
+      alert("Thank you. We will contact you soon.");
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+});
+</script>
+
 </body>
 </html>
