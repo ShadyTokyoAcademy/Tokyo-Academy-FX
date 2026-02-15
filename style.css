@@ -2101,3 +2101,12 @@ html, body {
   }
 
 }
+
+.hero-buttons-note {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  color: #cccccc;
+  line-height: 1.6;
+}
