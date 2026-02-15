@@ -1291,6 +1291,14 @@ body.nav-menu-open {
   background: #ff0000;
 }
 
+.footer-contact-socials__link--facebook {
+  background: #1877f2;
+}
+
+.footer-contact-socials__link--tiktok {
+  background: #000000;
+}
+
 /* FLOATING BUTTONS */
 .float-whatsapp,
 .float-telegram {
