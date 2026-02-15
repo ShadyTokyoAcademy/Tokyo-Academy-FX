@@ -106,7 +106,7 @@
         </p>
         <div class="hero-buttons">
           <button type="button" id="join-now-btn" class="btn primary" data-en="Join Now" data-ar="انضم الآن">Join Now</button>
-          <a href="#benefits" class="btn secondary" data-en="Learn More" data-ar="اعرف أكثر">Learn More</a>
+          <button type="button" id="learn-more-btn" class="btn secondary" data-en="Learn More" data-ar="اعرف أكثر">Learn More</button>
         </div>
       </div>
     </div>
@@ -517,15 +517,44 @@
     </div>
   </div>
 
+  <!-- Learn More Modal -->
+  <div id="learn-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="learn-modal-title">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close 15 Keys program">×</button>
+      <h2 id="learn-modal-title">The 15 Keys Program</h2>
+      <ul>
+        <li>Key 1 – Trader vs Gambler</li>
+        <li>Key 2 – Risk Management</li>
+        <li>Key 3 – Money Management</li>
+        <li>Key 4 – Trading Psychology</li>
+        <li>Key 5 – Japanese Candlesticks</li>
+        <li>Key 6 – Price Action</li>
+        <li>Key 7 – Chart Patterns</li>
+        <li>Key 8 – Trendlines</li>
+        <li>Key 9 – Fibonacci</li>
+        <li>Key 10 – Key Levels</li>
+        <li>Key 11 – Breakouts</li>
+        <li>Key 12 – Trading with Areas, Not Lines</li>
+        <li>Key 13 – Risk to Reward (RR)</li>
+        <li>Key 14 – Fundamentals</li>
+        <li>Key 15 – Building Your Trading System</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- Language Toggle Script -->
   <script>
     const toggleBtn = document.getElementById("lang-toggle");
     let currentLang = "en";
     const modal = document.getElementById("registration-modal");
     const joinBtn = document.getElementById("join-now-btn");
+    const learnBtn = document.getElementById("learn-more-btn");
     const closeBtn = modal.querySelector(".modal-close");
     const form = modal.querySelector(".modal-form");
     const modalContent = modal.querySelector(".modal-content");
+    const learnModal = document.getElementById("learn-modal");
+    const learnModalContent = learnModal ? learnModal.querySelector(".modal-content") : null;
+    const learnCloseBtn = learnModal ? learnModal.querySelector(".modal-close") : null;
     const dropdown = document.querySelector(".nav-dropdown");
     const dropdownToggle = dropdown ? dropdown.querySelector(".nav-dropdown-toggle") : null;
     const dropdownMenu = dropdown ? dropdown.querySelector(".nav-dropdown-menu") : null;
@@ -820,12 +849,15 @@
       ar: "شكرًا لك! سنتواصل معك قريبًا."
     };
 
+    let activeModal = null;
+    let activeModalContent = null;
+    let activeModalTrigger = null;
     let modalFocusableElements = [];
     let firstModalFocusable = null;
     let lastModalFocusable = null;
 
     const collectModalFocusables = () => {
-      if (!modalContent) {
+      if (!activeModalContent) {
         modalFocusableElements = [];
         firstModalFocusable = null;
         lastModalFocusable = null;
@@ -833,7 +865,7 @@
       }
 
       modalFocusableElements = Array.from(
-        modalContent.querySelectorAll("input:not([disabled]), button:not([disabled]), a[href]")
+        activeModalContent.querySelectorAll("input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])")
       ).filter((element) => element.offsetParent !== null);
 
       firstModalFocusable = modalFocusableElements[0] || null;
@@ -841,13 +873,13 @@
     };
 
     const handleModalKeydown = (event) => {
-      if (event.key !== "Tab" || !modal.classList.contains("open")) return;
-      if (!modalFocusableElements.length || !modalContent) return;
+      if (event.key !== "Tab" || !activeModal || !activeModal.classList.contains("open")) return;
+      if (!modalFocusableElements.length || !activeModalContent) return;
 
       const activeElement = document.activeElement;
 
       if (event.shiftKey) {
-        if (activeElement === firstModalFocusable || !modalContent.contains(activeElement)) {
+        if (activeElement === firstModalFocusable || !activeModalContent.contains(activeElement)) {
           event.preventDefault();
           if (lastModalFocusable) {
             lastModalFocusable.focus({ preventScroll: true });
@@ -856,7 +888,7 @@
         return;
       }
 
-      if (activeElement === lastModalFocusable || !modalContent.contains(activeElement)) {
+      if (activeElement === lastModalFocusable || !activeModalContent.contains(activeElement)) {
         event.preventDefault();
         if (firstModalFocusable) {
           firstModalFocusable.focus({ preventScroll: true });
@@ -864,40 +896,84 @@
       }
     };
 
-    const toggleModal = (show) => {
-      modal.setAttribute("aria-hidden", String(!show));
-      modal.classList.toggle("open", show);
+    const toggleModal = ({ targetModal, targetModalContent, triggerButton, show }) => {
+      if (!targetModal) return;
+
+      targetModal.setAttribute("aria-hidden", String(!show));
+      targetModal.classList.toggle("open", show);
+
       if (show) {
+        if (activeModal && activeModal !== targetModal) {
+          toggleModal({
+            targetModal: activeModal,
+            targetModalContent: activeModalContent,
+            triggerButton: activeModalTrigger,
+            show: false
+          });
+        }
+
+        activeModal = targetModal;
+        activeModalContent = targetModalContent;
+        activeModalTrigger = triggerButton || null;
         document.body.classList.add("no-scroll");
         collectModalFocusables();
-        if (modalContent) {
-          modalContent.addEventListener("keydown", handleModalKeydown);
+        if (activeModalContent) {
+          activeModalContent.addEventListener("keydown", handleModalKeydown);
         }
-        const firstFocusable = firstModalFocusable || modal.querySelector("input[name='name']");
+        const firstFocusable = firstModalFocusable;
         if (firstFocusable) {
           firstFocusable.focus();
         }
       } else {
-        document.body.classList.remove("no-scroll");
-        if (modalContent) {
-          modalContent.removeEventListener("keydown", handleModalKeydown);
+        if (targetModalContent) {
+          targetModalContent.removeEventListener("keydown", handleModalKeydown);
         }
-        joinBtn.focus();
+
+        const hasOpenModal = (modal && modal.classList.contains("open")) || (learnModal && learnModal.classList.contains("open"));
+        if (!hasOpenModal) {
+          document.body.classList.remove("no-scroll");
+        }
+
+        if (activeModal === targetModal) {
+          activeModal = null;
+          activeModalContent = null;
+          activeModalTrigger = null;
+        }
+
+        if (triggerButton instanceof HTMLElement) {
+          triggerButton.focus();
+        }
       }
     };
 
-    joinBtn.addEventListener("click", () => toggleModal(true));
-    closeBtn.addEventListener("click", () => toggleModal(false));
+    joinBtn.addEventListener("click", () => toggleModal({ targetModal: modal, targetModalContent: modalContent, triggerButton: joinBtn, show: true }));
+    closeBtn.addEventListener("click", () => toggleModal({ targetModal: modal, targetModalContent: modalContent, triggerButton: joinBtn, show: false }));
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
-        toggleModal(false);
+        toggleModal({ targetModal: modal, targetModalContent: modalContent, triggerButton: joinBtn, show: false });
       }
     });
+
+    if (learnBtn && learnModal && learnModalContent && learnCloseBtn) {
+      learnBtn.addEventListener("click", () => toggleModal({ targetModal: learnModal, targetModalContent: learnModalContent, triggerButton: learnBtn, show: true }));
+      learnCloseBtn.addEventListener("click", () => toggleModal({ targetModal: learnModal, targetModalContent: learnModalContent, triggerButton: learnBtn, show: false }));
+      learnModal.addEventListener("click", (event) => {
+        if (event.target === learnModal) {
+          toggleModal({ targetModal: learnModal, targetModalContent: learnModalContent, triggerButton: learnBtn, show: false });
+        }
+      });
+    }
+
     document.addEventListener("keydown", (event) => {
       if (event.key !== "Escape") return;
 
       if (modal.classList.contains("open")) {
-        toggleModal(false);
+        toggleModal({ targetModal: modal, targetModalContent: modalContent, triggerButton: joinBtn, show: false });
+        return;
+      }
+
+      if (learnModal && learnModal.classList.contains("open")) {
+        toggleModal({ targetModal: learnModal, targetModalContent: learnModalContent, triggerButton: learnBtn, show: false });
         return;
       }
 
@@ -913,7 +989,7 @@
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      toggleModal(false);
+      toggleModal({ targetModal: modal, targetModalContent: modalContent, triggerButton: joinBtn, show: false });
       alert(successMessages[currentLang]);
     });
 
