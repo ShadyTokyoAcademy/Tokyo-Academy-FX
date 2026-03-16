@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
 /* ================================================
    TOKYO ACADEMY FX – BLACK & GOLD MODERN THEME
    Author: Rashad
@@ -22,6 +23,22 @@ html, body {
   font-weight: 400;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ar"] p,
+html[lang="ar"] a,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] span {
+  font-family: 'Cairo', sans-serif;
 }
 
 .scroll-reveal {
@@ -288,16 +305,18 @@ img {
 }
 
 .nav-dropdown-toggle {
-  background: linear-gradient(90deg, #ffb300, #ff6a00);
-  border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #111;
-  font-weight: 600;
-  letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  background: linear-gradient(90deg, #ffb300, #ff6a00);
+  border: none;
+  padding: 0 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #111;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   gap: 0.5rem;
   transition: filter 0.3s ease, transform 0.3s ease;
 }
@@ -380,15 +399,23 @@ img {
 }
 
 #lang-toggle {
-  background: linear-gradient(90deg, #ffb300, #ff6a00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 50px;
+
+  background: linear-gradient(90deg,#ffb300,#ff6a00);
   border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 10px;
+
+  font-weight: 700;
+  font-size: 15px;
   color: #111;
-  font-weight: 600;
-  transition: 0.3s;
-  flex-shrink: 0;
+
+  cursor: pointer;
+  padding: 0;
 }
 
 #lang-toggle:hover {
@@ -1203,9 +1230,6 @@ body.nav-menu-open {
   color: #36e29c;
 }
 
-
-}
-
 .footer-links ul {
   list-style: none;
   display: grid;
@@ -1963,11 +1987,6 @@ html, body {
   overflow: hidden;
 }
 
-/* Hide the AR/EN language toggle button */
-#lang-toggle {
-  display: none !important;
-}
-
 /* ========= MOBILE FIX — FINAL WORKING VERSION ========= */
 @media (max-width: 767px) {
 
@@ -2046,13 +2065,6 @@ html, body {
     font-weight: 600 !important;
   }
 
-/* MOBILE ONLY */
-@media (max-width: 767px) {
-  #lang-toggle {
-    display: none !important;
-  }
-}
-
 /* FINAL — HIDE BEAR & BULL ON MOBILE ONLY (DESKTOP UNTOUCHED) */
 @media (max-width: 991px) {
   .hero-bear,
@@ -2109,4 +2121,201 @@ html, body {
   opacity: 0.85;
   color: #cccccc;
   line-height: 1.6;
+}
+
+}
+
+/* ===== ARABIC TYPOGRAPHY BALANCE ===== */
+
+html[lang="ar"] body,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ar"] p,
+html[lang="ar"] a,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] span,
+html[lang="ar"] li {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] body {
+  line-height: 1.7;
+}
+
+/* Hero title closer to English visual size */
+html[lang="ar"] .hero-title {
+  font-size: 3.95rem;
+  line-height: 1.18;
+  font-weight: 800;
+}
+
+html[lang="ar"] .hero-title span {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Hero paragraph closer to English */
+html[lang="ar"] .hero-section p {
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+/* Buttons */
+html[lang="ar"] .btn,
+html[lang="ar"] button,
+html[lang="ar"] .hero-buttons a,
+html[lang="ar"] .hero-buttons button,
+html[lang="ar"] .partner-button {
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 14px 34px;
+}
+
+/* Navbar */
+html[lang="ar"] .nav-links a {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+html[lang="ar"] .nav-dropdown-toggle,
+html[lang="ar"] #lang-toggle {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 18px;
+}
+
+/* Partners marquee fix in Arabic */
+html[lang="ar"] .partners-marquee,
+html[lang="ar"] .marquee-track,
+html[lang="ar"] .marquee-group {
+  direction: ltr;
+}
+
+html[lang="ar"] .partner-card {
+  direction: rtl;
+  text-align: center;
+}
+
+/* ===== FORCE HERO ANIMALS POSITION FOR ARABIC ===== */
+
+html[lang="ar"] .hero-bear,
+html[lang="ar"] .hero-bull {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  position: absolute !important;
+  z-index: 3 !important;
+}
+
+html[lang="ar"] .hero-bear {
+  left: clamp(-300px, -24vw, -160px) !important;
+  width: clamp(240px, 34vw, 420px) !important;
+  height: clamp(280px, 42vw, 520px) !important;
+}
+
+html[lang="ar"] .hero-bull {
+  right: clamp(-220px, -18vw, -120px) !important;
+  width: clamp(240px, 34vw, 420px) !important;
+  height: clamp(280px, 42vw, 520px) !important;
+}
+
+html[lang="ar"] .hero-bear img,
+html[lang="ar"] .hero-bull img {
+  display: block !important;
+  width: clamp(360px, 60vw, 700px) !important;
+  max-width: none !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+html[lang="ar"] .hero-bear img {
+  object-position: right center !important;
+}
+
+html[lang="ar"] .hero-bull img {
+  object-position: left center !important;
+}
+
+@media (min-width: 1025px) {
+  html[lang="ar"] .hero-bear {
+    left: -200px !important;
+  }
+
+  html[lang="ar"] .hero-bull {
+    right: -60px !important;
+  }
+}
+
+/* ===== FIX HERO LAYOUT FOR ARABIC ===== */
+
+html[lang="ar"] .hero-section {
+  direction: ltr;
+}
+
+html[lang="ar"] .hero-content {
+  direction: rtl;
+}
+
+/* ===== ARABIC HERO ANIMALS FINAL POSITION ===== */
+
+html[lang="ar"] .hero-bear {
+  left: -250px !important;
+}
+
+html[lang="ar"] .hero-bull {
+  right: 20px !important;
+}
+
+html[lang="ar"] .hero-bear,
+html[lang="ar"] .hero-bull {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+/* ===== FIX STATS NUMBER ORDER IN ARABIC ===== */
+
+html[lang="ar"] .stats h2 {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+html[lang="ar"] .stats p {
+  direction: rtl;
+  text-align: center;
+}
+
+/* ===== ARABIC FAQ RTL FIX ===== */
+
+html[lang="ar"] .faq-question {
+  direction: rtl;
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+html[lang="ar"] .faq-question-text {
+  text-align: right;
+}
+
+html[lang="ar"] .faq-answer,
+html[lang="ar"] .faq-answer-text {
+  direction: rtl;
+  text-align: right;
+}
+
+html[lang="ar"] .faq-toggle-button {
+  direction: rtl;
+  text-align: center;
+}
+
+html[lang="ar"] .faq-item {
+  direction: rtl;
 }
