@@ -25,6 +25,8 @@ html, body {
   overflow-x: hidden;
 }
 
+
+
 html[lang="ar"] body,
 html[lang="ar"] h1,
 html[lang="ar"] h2,
@@ -39,6 +41,35 @@ html[lang="ar"] input,
 html[lang="ar"] select,
 html[lang="ar"] span {
   font-family: 'Cairo', sans-serif;
+}
+
+/* ===== ARABIC FONT SIZE FIX ===== */
+
+html[lang="ar"] body{
+    font-family:'Cairo',sans-serif;
+    font-size:18px;
+    line-height:1.8;
+}
+
+html[lang="ar"] h1{
+    font-size:3.4rem;
+    font-weight:800;
+}
+
+html[lang="ar"] h2{
+    font-size:2.4rem;
+}
+
+html[lang="ar"] h3{
+    font-size:1.8rem;
+}
+
+html[lang="ar"] p{
+    font-size:1.2rem;
+}
+
+html[lang="ar"] .btn{
+    font-size:1.15rem;
 }
 
 .scroll-reveal {
